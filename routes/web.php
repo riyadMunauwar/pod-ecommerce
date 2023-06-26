@@ -37,6 +37,7 @@ Route::middleware([
     Route::view('/suppliers', 'admin.pages.suppliers.create')->name('suppliers.create');
     Route::view('/banners', 'admin.pages.banners.create')->name('banners.create');
     Route::view('/caurosels', 'admin.pages.caurosels.create')->name('caurosels.create');
+    Route::view('/guides', 'admin.pages.guides.create')->name('guides.create');
     Route::view('/menus', 'admin.pages.menus.create')->name('menus.create');
     Route::view('/pages', 'admin.pages.custom-pages.create')->name('pages.create');
     Route::view('/footers', 'admin.pages.footers.create')->name('footers.create');
@@ -46,7 +47,16 @@ Route::middleware([
     Route::view('/socials', 'admin.pages.socials.create')->name('socials.create');
     Route::view('/settings/general', 'admin.pages.settings.create')->name('settings.create');
     Route::view('/header', 'admin.pages.header.create')->name('header.create');
-    
+
+    Route::view('/reports/sales', 'admin.pages.reports.sales-report')->name('reports.sales');
+    Route::view('/reports/purchases', 'admin.pages.reports.purchases-report')->name('reports.purchases');
+    Route::view('/reports/stocks', 'admin.pages.reports.stocks-report')->name('reports.stocks');
+    Route::view('/reports/branded-products', 'admin.pages.reports.branded-products-report')->name('reports.branded-products');
+    Route::view('/reports/categorized-products', 'admin.pages.reports.categorized-products-report')->name('reports.categorized-products');
+    Route::view('/reports/products-view', 'admin.pages.reports.products-view-report')->name('reports.products-view');
+    Route::view('/reports/products-search', 'admin.pages.reports.products-search-report')->name('reports.products-search');
+    Route::view('/reports/customer-orders', 'admin.pages.reports.customer-orders-report')->name('reports.customer-orders');
+
 });
 
 

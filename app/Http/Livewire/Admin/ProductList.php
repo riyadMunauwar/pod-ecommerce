@@ -18,6 +18,7 @@ class ProductList extends Component
     protected $listeners = [
         'onProductCreated' => '$refresh',
         'onProductUpdated' => '$refresh',
+        'onAddStock' => '$refresh',
         'onVariationDeleted' => '$refresh',
         'onProductDelete' => 'deleteProduct',
     ];
@@ -41,9 +42,9 @@ class ProductList extends Component
     }
 
 
-    public function enableAddStockModal($id)
+    public function enableAddStockModal($productId, $varationId = null)
     {
-        $this->emit('onAddStockModalShow', $id);
+        $this->emit('onAddStockModalShow', $productId);
     }
 
 
@@ -89,7 +90,7 @@ class ProductList extends Component
             $query->where('name', 'like', '%' . $search . '%');
         });
 
-        return $query->with('categories', 'brand')->withCount('variations')->paginate(5);
+        return $query->with('categories', 'brand')->withCount('variations')->paginate(25);
 
     }
 }

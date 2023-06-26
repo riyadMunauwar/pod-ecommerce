@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->decimal('price', 12, 2);
             $table->unsignedBigInteger('qty');
-            $table->decimal('piad_to_supplier', 12, 2)->nullable();
+            $table->decimal('paid_to_supplier', 12, 2)->nullable();
             $table->foreignId('product_id')->constraind();
+            $table->foreignId('variation_id')->nullable()->constraind();
             $table->foreignId('supplier_id')->nullable()->constraind();
             $table->string('cache_key')->nullable();
             $table->timestamps();

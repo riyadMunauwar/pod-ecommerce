@@ -63,18 +63,18 @@ class EditProduct extends Component
         'name' => ['required', 'string'],
         'slug' => ['required', 'string'],
         'regular_price' => ['nullable', 'numeric'],
-        'sale_price' => ['nullable', 'numeric'],
-        'stock_qty' => ['nullable', 'numeric'],
+        'sale_price' => ['required', 'numeric'],
+        'stock_qty' => ['required', 'numeric'],
         'height' => ['nullable', 'string'],
         'width' => ['nullable', 'string'],
         'length' => ['nullable', 'string'],
         'weight' => ['nullable', 'string'],
         'short_description' => ['nullable', 'string'],
         'description' => ['nullable', 'string'],
-        'is_premium' => ['nullable', 'boolean'],
-        'is_published' => ['nullable', 'boolean'],
-        'is_featured' => ['nullable', 'boolean'],
-        'is_grocery' => ['nullable', 'boolean'],
+        'is_premium' => ['required', 'boolean'],
+        'is_published' => ['required', 'boolean'],
+        'is_featured' => ['required', 'boolean'],
+        'is_grocery' => ['required', 'boolean'],
         'brand_id' => ['nullable', 'integer'],
         'thumbnail' => ['nullable','image'],
     ];
@@ -95,6 +95,51 @@ class EditProduct extends Component
     {
         return view('admin.components.edit-product');
     }
+
+
+    public function updated($attribute, $value)
+    {
+        switch($attribute){
+
+            case 'sale_price': 
+                if(empty($value)){
+                    $this->sale_price = null;
+                }
+                break;
+            case 'regular_price':
+                if(empty($value)){
+                    $this->regular_price = null;
+                }
+                break;
+            case 'stock_qty':
+                if(empty($value)){
+                    $this->stock_qty = null;
+                }
+                break;
+            case 'width':
+                if(empty($value)){
+                    $this->width = null;
+                }
+                break;
+            case 'height':
+                if(empty($value)){
+                    $this->height = null;
+                }
+                break;
+            case 'length':
+                if(empty($value)){
+                    $this->length = null;
+                }
+                break;
+            case 'weight':
+                if(empty($value)){
+                    $this->weight = null;
+                }
+                break;
+ 
+        }
+    }
+
 
 
     public function updatedName($value)

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\Purchase;
+use App\Models\Variation;
 use Illuminate\Support\Facades\DB;
 use App\Traits\WithSweetAlert;
 
@@ -21,6 +22,7 @@ class AddStock extends Component
     public $qty;
     public $supplier_id;
     public $product_id;
+    public $variation_id;
     public $paid_to_supplier;
 
     public $suppliers = [];
@@ -71,14 +73,20 @@ class AddStock extends Component
         $this->validate();
 
         $success = DB::transaction(function(){
-            
-                        Product::find($this->product_id)->increment('stock_qty', $this->qty);
+
+                        if($this->variation_id){
+                            Variation::find($this->variation_id)->increment('stock_qty', $this->qty);
+                        }else {
+                            Product::find($this->product_id)->increment('stock_qty', $this->qty);
+                        }
 
                         Purchase::create([
                             'price' => $this->price,
                             'qty' => $this->qty,
                             'supplier_id' => $this->supplier_id,
                             'product_id' => $this->product_id,
+                            'variation_id' => $this->variation_id,
+                            'paid_to_supplier' => $this->paid_to_supplier,
                         ]);
 
                         return true;
@@ -88,7 +96,7 @@ class AddStock extends Component
         if($success){
             $this->reset();
             $this->is_add_stock_modal_show = false;
-            $this->emit('onProductUpdated');
+            $this->emit('onAddStock');
             return $this->success('Sucess', 'Stock added successfully');
         }
 
@@ -97,11 +105,13 @@ class AddStock extends Component
     }
 
 
-    public function showAddStockModal($id)
+    public function showAddStockModal($productId, $variationId = null)
     {
+        
         $this->preapredInitState();
-        $this->product_name = Product::select('name')->find($id)->name;
-        $this->product_id = $id;
+        $this->product_name = Product::select('name')->find($productId)->name;
+        $this->product_id = $productId;
+        $this->variation_id = $variationId;
         $this->is_add_stock_modal_show = true;
     }
 

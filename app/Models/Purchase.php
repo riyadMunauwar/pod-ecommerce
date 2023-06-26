@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Supplier;
 use App\Models\Product;
+use App\Models\Variation;
 
 class Purchase extends Model
 {
@@ -16,6 +17,7 @@ class Purchase extends Model
         'qty',
         'paid_to_supplier',
         'product_id',
+        'variation_id',
         'supplier_id'
     ];
 
@@ -30,5 +32,11 @@ class Purchase extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+
+    public function variation()
+    {
+        return $this->belongsTo(Variation::class);
     }
 }

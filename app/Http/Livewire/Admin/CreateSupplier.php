@@ -73,12 +73,11 @@ class CreateSupplier extends Component
 
         if($this->logo){
             $supplier->addMedia($this->logo)->toMediaCollection('logo');
-            $this->reset();
-            $this->emit('onSuppplierCreated');
-            return $this->success('Created', 'Supplier created successfully');
         }
 
-        return $this->error('Failed', 'Something went wrong try agian !!');
+        $this->reset();
+        $this->emit('onSuppplierCreated');
+        return $this->success('Created', 'Supplier created successfully');
 
     }
 

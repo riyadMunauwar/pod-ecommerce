@@ -15,6 +15,7 @@ class VariationList extends Component
 
     public $search;
     public $product_name;
+    public $product_id;
     public $variations = [];
     public $is_variations_show = false;
 
@@ -22,6 +23,7 @@ class VariationList extends Component
         'onVariatioShow' => 'enableVariationsShow',
         'onVariationDelete' => 'deleteVariation',
         'onVariationDeleted' => '$refresh',
+        'onAddStock' => '$refresh',
         'onCancelVariationShow' => 'cancelVariationsShowMode',
     ];
 
@@ -36,6 +38,7 @@ class VariationList extends Component
     {
         $this->variations = Variation::where('product_id', $product_id)->get();
         $this->product_name = Product::select('name')->find($product_id)->name;
+        $this->product_id = $product_id;
         $this->is_variations_show = true;
     }
 
@@ -51,6 +54,11 @@ class VariationList extends Component
         return $this->ifConfirmThenDispatch('onVariationDelete', $id, 'Are you sure ?', 'Variation will delete permanently !');
     }
 
+    
+    public function enableAddStockModal($productId, $variationId = null)
+    {
+        $this->emit('onAddStockModalShow', $productId, $variationId);
+    }
 
     public function cancelVariationsShowMode()
     {

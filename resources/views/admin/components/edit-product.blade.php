@@ -1,6 +1,13 @@
 <div class="">
     @if($is_edit_mode_on)
-    <x-ui.edit-modal class="max-w-6xl bg-white p-5 rounded-md" >
+    <x-ui.edit-modal class="max-w-6xl bg-white p-5 md:pl-10 md:pr-10 md:pb-10 rounded-md" >
+    <div class="flex justify-end mb-5">
+        <span wire:click.debounce="cancelEditMode" class="cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </span>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-6 md:gap-5">
         <div class="col-span-4">
             <div class="rounded-md bg-white p-5 md:p-10 border">

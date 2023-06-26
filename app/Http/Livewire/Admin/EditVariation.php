@@ -45,6 +45,50 @@ class EditVariation extends Component
     }
     
 
+    public function updated($attribute, $value)
+    {
+
+        switch($attribute){
+
+            case 'variation.sale_price': 
+                if(empty($value)){
+                    $this->variation->sale_price = null;
+                }
+                break;
+            case 'variation.regular_price':
+                if(empty($value)){
+                    $this->variation->regular_price = null;
+                }
+                break;
+            case 'variation.stock_qty':
+                if(empty($value)){
+                    $this->variation->stock_qty = null;
+                }
+                break;
+            case 'variation.width':
+                if(empty($value)){
+                    $this->variation->width = null;
+                }
+                break;
+            case 'variation.height':
+                if(empty($value)){
+                    $this->variation->height = null;
+                }
+                break;
+            case 'variation.length':
+                if(empty($value)){
+                    $this->variation->length = null;
+                }
+                break;
+            case 'variation.weight':
+                if(empty($value)){
+                    $this->variation->weight = null;
+                }
+                break;
+ 
+        }
+    }
+
     public function updateVariation()
     {
 

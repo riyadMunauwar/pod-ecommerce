@@ -105,6 +105,50 @@ class CreateProduct extends Component
     }
 
 
+    public function updated($attribute, $value)
+    {
+        switch($attribute){
+
+            case 'sale_price': 
+                if(empty($value)){
+                    $this->sale_price = null;
+                }
+                break;
+            case 'regular_price':
+                if(empty($value)){
+                    $this->regular_price = null;
+                }
+                break;
+            case 'stock_qty':
+                if(empty($value)){
+                    $this->stock_qty = null;
+                }
+                break;
+            case 'width':
+                if(empty($value)){
+                    $this->width = null;
+                }
+                break;
+            case 'height':
+                if(empty($value)){
+                    $this->height = null;
+                }
+                break;
+            case 'length':
+                if(empty($value)){
+                    $this->length = null;
+                }
+                break;
+            case 'weight':
+                if(empty($value)){
+                    $this->weight = null;
+                }
+                break;
+ 
+        }
+    }
+
+
     public function updatedName($value)
     {
         $this->slug = Str::slug($value);
@@ -174,7 +218,7 @@ class CreateProduct extends Component
             return $this->success('Created', 'Product created successfully');
 
         }catch(\Exception $e){
-            $this->error('Failed', 'Something went wrong !');
+            $this->error('Failed', 'Something went wrong !' . $e->getMessage());
         }
 
     }
@@ -385,7 +429,7 @@ class CreateProduct extends Component
         $this->validate([
             'name' => ['required', 'string'],
             'slug' => ['required', 'string', 'unique:products'],
-            'regular_price' => ['required', 'numeric'],
+            'regular_price' => ['nullable', 'numeric'],
             'sale_price' => ['required', 'numeric'],
             'stock_qty' => ['required', 'numeric'],
             'short_description' => ['nullable', 'string'],
@@ -402,7 +446,7 @@ class CreateProduct extends Component
             'thumbnail' => ['required','image'],
             'variations.*.image' => ['required', 'image'],
             'variations.*.sale_price' => ['required', 'numeric'],
-            'variations.*.regular_price' => ['required', 'numeric'],
+            'variations.*.regular_price' => ['nullable', 'numeric'],
             'variations.*.stock_qty' => ['required', 'numeric'],
         ]);
     }

@@ -2,7 +2,14 @@
     @if($is_add_stock_modal_show)
         <x-ui.edit-modal class="max-w-2xl">
             <div class="bg-white p-5 md:p-10 rounded-md">
-                <h1 class="font-bold text-xl mb-4">Add Stock</h1>
+                <div class="flex justify-between items-center">
+                    <h1 class="font-bold text-xl mb-4">Add Stock</h1>
+                    <span wire:click.debounce="cancelAddStock" class="cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </span>
+                </div>
 
                 <h1 class="font-bold text-md mb-4">{{ $product_name ?? '' }}</h1>
                 <x-validation-errors class="mb-4" />
@@ -48,6 +55,6 @@
 
             </div>
         </x-ui.edit-modal>
+        <x-ui.loading-spinner wire:loading.flex wire:target="addStock, cancelAddStock" />
     @endif
-    <x-ui.loading-spinner wire:loading.flex wire:target="addStock, cancelAddStock" />
 </div>

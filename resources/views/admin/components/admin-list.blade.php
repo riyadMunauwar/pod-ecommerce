@@ -69,8 +69,7 @@
             </nav>
         </div>
     </div>
-    <x-ui.loading-spinner wire:loading.flex wire:target="search" />
-    <x-ui.loading-spinner wire:loading.flex wire:target="enableAdminEditMode, confirmDeleteAdmin, openAddNewAdminModal" />
+    <x-ui.loading-spinner wire:loading.flex wire:target="search, enableAdminEditMode, confirmDeleteAdmin, openAddNewAdminModal" />
 </section>
 
 
