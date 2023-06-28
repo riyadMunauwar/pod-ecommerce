@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light scroll-smooth" dir="ltr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
+
         <title>{{ $title }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
         <!-- Sweet Alert -->
-        <link rel="stylesheet" href="{{ asset('assets/sweetalert2/sweetalert2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+
+        <!-- Css -->
+        <link href="{{ asset('techwind-assets/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet" type="text/css">
+       
+        <!-- Main Css -->
+        <link href="{{ asset('techwind-assets/libs/iconscout/unicons/css/line.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('techwind-assets/libs/mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('techwind-assets/css/tailwind.css') }}" rel="stylesheet" type="text/css">
+
 
         <!-- Styles For This Page -->
         @stack('styles')
@@ -24,16 +31,21 @@
         @livewireStyles
 
     </head>
-    <body class="font-sans antialiased bg-gray-200">
+    <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900">
 
+        @include('front.partials.loader')
         @include('front.partials.header')
 
         <main>
             {{ $slot }}
         </main>
 
-        @include('front.partials.footer')
+        @include('front.partials.footer-2')
 
+        @include('front.partials.cookie-popup')
+        @include('front.partials.back-to-top')
+        @include('front.partials.mode-switcher')
+        @include('front.partials.ltr-rtr-mode')
 
         @stack('modals')
 
@@ -43,6 +55,16 @@
 
         <!-- Sweet Alert -->
         <script src="{{ asset('assets/sweetalert2/sweetalert2.min.js') }}"></script>
+
+        <!-- Start Techwind Dependency & Iinit Js -->
+        <script src="{{ asset('techwind-assets/libs/shufflejs/shuffle.min.js') }}"></script>
+        <script src="{{ asset('techwind-assets/libs/jarallax/jarallax.min.js') }}"></script>
+        <script src="{{ asset('techwind-assets/libs/tiny-slider/min/tiny-slider.js') }}"></script>
+        <script src="{{ asset('techwind-assets/libs/feather-icons/feather.min.js') }}"></script>
+        <script src="{{ asset('techwind-assets/js/plugins.init.js') }}"></script>
+        <script src="{{ asset('techwind-assets/js/app.js') }}"></script>
+        <!-- End Techwind Dependency & Iinit Js -->
+
 
         <!-- Sweet Alert Cinfig -->
         <script>
