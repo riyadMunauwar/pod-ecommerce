@@ -2,7 +2,7 @@
 <nav id="topnav" class="defaultscroll is-sticky bg-white dark:bg-slate-900">
     <div class="container relative">
         <!-- Logo container-->
-        <a class="logo" href="index-2.html">
+        <a class="logo" href="/">
             <img src="{{ asset('assets/images/elitg-logo.png') }}" class="w-20 inline-block dark:hidden" alt="">
             <img src="{{ asset('assets/images/elitg-logo.png') }}" class="w-20 hidden dark:inline-block" alt="">
         </a>
@@ -109,29 +109,42 @@
                 </a>
             </li>
     
-            <li class="dropdown inline-block relative">
-                <button data-dropdown-toggle="dropdown" class="dropdown-toggle btn btn-icon rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white inline-flex" type="button">
-                    <i class="mdi mdi-account"></i>
-                </button>
-                <!-- Dropdown menu -->
-                <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 hidden" onclick="event.stopPropagation();">
-                    <ul class="py-2 text-start" aria-labelledby="dropdownDefault">
-                        <li>
-                            <a href="shop-account.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-user align-middle me-1"></i> Account</a>
-                        </li>
-                        <li>
-                            <a href="shop-cart.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-clipboard-notes align-middle me-1"></i> Order History</a>
-                        </li>
-                        <li>
-                            <a href="shop-checkout.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-arrow-circle-down align-middle me-1"></i> Download</a>
-                        </li>
-                        <li class="border-t border-gray-100 dark:border-gray-800 my-2"></li>
-                        <li>
-                            <a href="auth-login.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-sign-out-alt align-middle me-1"></i> Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+            @auth
+                <li class="dropdown inline-block relative">
+                    <button data-dropdown-toggle="dropdown" class="dropdown-toggle btn btn-icon rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white inline-flex" type="button">
+                        <i class="mdi mdi-account"></i>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 hidden" onclick="event.stopPropagation();">
+                        <ul class="py-2 text-start" aria-labelledby="dropdownDefault">
+                            <li>
+                                <a href="shop-account.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-user align-middle me-1"></i> Account</a>
+                            </li>
+                            <li>
+                                <a href="shop-cart.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-clipboard-notes align-middle me-1"></i> Order History</a>
+                            </li>
+                            <li>
+                                <a href="shop-checkout.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-arrow-circle-down align-middle me-1"></i> Download</a>
+                            </li>
+                            <li class="border-t border-gray-100 dark:border-gray-800 my-2"></li>
+                            <li>
+                                <a href="auth-login.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-sign-out-alt align-middle me-1"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            @endauth
+
+            @guest
+                <li class="inline-block md:ml-8">
+                    <a href="{{ route('login') }}" class="text-indigo-600 hover:text-white border-2 border-indigo-600 hover:bg-indigo-600 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">Login</a>
+                </li>
+
+                <li class="inline-block">
+                    <a href="{{ route('register') }}" type="button" class="text-indigo-600 hover:text-white border-2 border-indigo-600 hover:bg-indigo-600 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">Signup</a>
+                </li>
+            @endguest
+
         </ul>
         <!--Login button End-->
 
@@ -461,7 +474,6 @@
                     </ul>
                 </li>
         
-                <li><a href="contact-two.html" class="sub-menu-item">Contact</a></li>
             </ul><!--end navigation menu-->
         </div><!--end navigation-->
     </div><!--end container-->
