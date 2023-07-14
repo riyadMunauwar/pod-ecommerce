@@ -35,7 +35,7 @@
                                     <div class="md:col-span-4">
                                         <ul class="list-none footer-list mt-6">
                                             @foreach($column->attributes as $attribute)
-                                                <li><a href="{{ $attribute->name ?? '' }}" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ $attribute->link ?? '' }}</a></li>
+                                                <li><a href="{{ $attribute->link ?? '' }}" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ $attribute->name ?? '' }}</a></li>
                                             @endforeach
                                         </ul>
                                     </div>
