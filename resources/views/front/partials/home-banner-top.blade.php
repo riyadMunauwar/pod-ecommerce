@@ -9,7 +9,7 @@
 <section class="relative mt-20">
   <div class="container-fluid relative">
       <div class="relative py-48 table w-full shadow-md overflow-hidden">
-          <div class="absolute inset-0 bg-[url('{{ $home_top_banner->imageUrl() }}')] bg-no-repeat md:bg-left bg-center bg-cover"></div>
+          <div style="background-image: url('{{ $home_top_banner->imageUrl() }}')" class="absolute inset-0 bg-no-repeat md:bg-left bg-center bg-cover"></div>
           <div class="absolute inset-0 bg-slate-950/30"></div>
           <div class="container relative">
               <div class="grid grid-cols-1">
