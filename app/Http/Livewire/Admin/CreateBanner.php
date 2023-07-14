@@ -25,7 +25,7 @@ class CreateBanner extends Component
 
     protected $rules = [
         'name' => ['required', 'string', 'unique:banners'],
-        'show_in_page' => ['required', 'string', 'unique:banners'],
+        'show_in_page' => ['required', 'string'],
         'banner_link' => ['nullable', 'string'],
         'is_published' => ['required', 'boolean'],
         'image' => ['nullable', 'image'],
