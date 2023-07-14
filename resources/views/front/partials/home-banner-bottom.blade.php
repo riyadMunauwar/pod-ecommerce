@@ -7,7 +7,7 @@
 @if($home_bottom_banner)
 
 <!-- Start -->
-<section style="background-image: url('{{ $home_top_banner->imageUrl() }}')" class="py-28 w-full table relative  bg-center bg-no-repeat bg-cover jarallax" data-jarallax data-speed="0.5">
+<section style="background-image: url('{{ $home_bottom_banner->imageUrl() }}')" class="py-28 w-full table relative  bg-center bg-no-repeat bg-cover jarallax" data-jarallax data-speed="0.5">
     <div class="absolute inset-0 bg-slate-900/30"></div>
     <div class="container relative">
         <div class="grid grid-cols-1 text-center">
