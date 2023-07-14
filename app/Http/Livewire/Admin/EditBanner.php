@@ -23,6 +23,10 @@ class EditBanner extends Component
         'banner.name' => ['required', 'string'],
         'banner.show_in_page' => ['required', 'string', ],
         'banner.banner_link' => ['nullable', 'string', ],
+        'banner.title' => ['nullable', 'string', ],
+        'banner.sub_title' => ['nullable', 'string', ],
+        'banner.button_text' => ['nullable', 'string', ],
+        'banner.button_link' => ['nullable', 'string', ],
         'banner.is_published' => ['required', 'boolean'],
     ];
 

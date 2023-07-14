@@ -17,6 +17,10 @@ class Banner extends Model implements HasMedia
         'name',
         'show_in_page',
         'banner_link',
+        'title',
+        'sub_title',
+        'button_text',
+        'button_link',
         'is_published', 
     ];
 
@@ -29,6 +33,12 @@ class Banner extends Model implements HasMedia
                 $this->addMediaConversion('image')
                     ->width(1500)
                     ->height(305)
+                    ->format('webp')
+                    ->quality(95);
+
+                $this->addMediaConversion('square')
+                    ->width(1080)
+                    ->height(1080)
                     ->format('webp')
                     ->quality(95);
 

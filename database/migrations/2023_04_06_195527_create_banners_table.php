@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('show_in_page');
             $table->string('banner_link', 2048)->nullable();
+            $table->string('title', 2048)->nullable();
+            $table->string('sub_title', 2048)->nullable();
+            $table->string('button_text')->nullable();
+            $table->string('button_link', 2048)->nullable();
             $table->boolean('is_published')->nullable()->default(true);
             $table->string('cache_key')->nullable();
             $table->timestamps();

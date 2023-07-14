@@ -21,6 +21,15 @@
             <x-input wire:model.debounce="order" id="order" class="block h-8 mt-1 w-full" type="number" />
         </div>
 
+        <div>
+            <x-label for="view_style" value="{{ __('View Style') }}" />
+            <x-ui.select wire:model.debounce="view_style" id="view_style" class="block h-8 text-xs mt-1 w-full">
+                <option value="">Select</option>
+                <option value="mega">Mega</option>
+                <option value="list">List</option>
+            </x-ui.select>
+        </div>
+
         <div class="block">
             <label for="use_link" class="flex items-center">
                 <x-checkbox wire:model.debounce="is_use_link" id="use_link" />
@@ -50,7 +59,7 @@
             
             @if(!$icon && $old_icon)
                 <div class="flex items-center justify-center mb-3">
-                    <img class="h-20 h-20 object-contain block" src="{{ $old_icon ?? '' }}">
+                    <img class="h-20 object-contain block" src="{{ $old_icon ?? '' }}">
                 </div>
             @endif
 

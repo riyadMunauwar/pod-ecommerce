@@ -19,6 +19,7 @@ class Menu extends Model implements HasMedia
         'name',
         'link',
         'order',
+        'view_style',
         'category_id',
         'is_published'
     ];
@@ -56,11 +57,20 @@ class Menu extends Model implements HasMedia
         return $this->belongsTo(Category::class)->with('children');
     }
 
-    // Model Scrop
+    // Model Scope
 
     public function scopePublished($query)
     {
         return $query->where('is_published', true);
+    }
+
+    // Property
+
+    public function hasCategory()
+    {
+        if($this->link) return false;
+
+        return true;
     }
 
 }

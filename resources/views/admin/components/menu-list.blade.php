@@ -25,6 +25,7 @@
                             <th scope="col" class="px-4 py-3">Icon</th>
                             <th scope="col" class="px-4 py-3">Name</th>
                             <th scope="col" class="px-4 py-3">Showing Order</th>
+                            <th scope="col" class="px-4 py-3">View Style</th>
                             <th scope="col" class="px-4 py-3">Link To</th>
                             <th scope="col" class="px-4 py-3">Status</th>
                             <th scope="col" class="px-4 py-3">
@@ -40,6 +41,7 @@
                             </td>
                             <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $menu->name ?? '' }}</th>
                             <td class="px-4 py-3">{{ $menu->order ?? '' }}</td>
+                            <td class="px-4 py-3"><span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{{ $menu->view_style ?? 'list' }}</span></td>
                             <td class="px-4 py-3"><span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{{ $menu->category->name ?? 'None' }}</span></td>
                             <td class="px-4 py-3">
                                 @if($menu->is_published)

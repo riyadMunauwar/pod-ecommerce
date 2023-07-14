@@ -9,7 +9,7 @@
                             <a href="#" class="text-[22px] focus:outline-none">
                                 <img class="w-20 inline-block" src="{{ asset('assets/images/elitg-logo-white.png') }}" alt="">
                             </a>
-                            <p class="mt-6 text-gray-300">Start working with Tailwind CSS that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                            <p class="mt-6 text-gray-300">Unleash Your Creativity with Print On Demand Wear Your Unique Style!</p>
                             <ul class="list-none mt-6">
                                 <li class="inline"><a href="https://1.envato.market/elitg" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-shopping-cart align-middle" title="Buy Now"></i></a></li>
                                 <li class="inline"><a href="https://dribbble.com/elitg" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-dribbble align-middle" title="dribbble"></i></a></li>
@@ -22,41 +22,24 @@
                         </div><!--end col-->
                 
                         <div class="lg:col-span-6 md:col-span-12">
-                            <h5 class="tracking-[1px] text-gray-100 font-semibold">Shopping & Clothes</h5>
+                            <h5 class="tracking-[1px] text-gray-100 font-semibold">Quick Links</h5>
+
+                            @php 
+
+                                $columns = \App\Models\FooterColumn::published()->with('attributes')->get();
+
+                            @endphp 
 
                             <div class="grid md:grid-cols-12 grid-cols-1">
-                                <div class="md:col-span-4">
-                                    <ul class="list-none footer-list mt-6">
-                                        <li><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Men</a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Jackets & Coats </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Jeans </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i>  Loungewear </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Polo shirts </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Shirts</a></li>
-                                    </ul>
-                                </div><!--end col-->
-                        
-                                <div class="md:col-span-4">
-                                    <ul class="list-none footer-list mt-6">
-                                        <li><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Shorts </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Suits Swimwear </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> T-shirts </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Tracksuits </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Trousers</a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Shirts</a></li>
-                                    </ul>
-                                </div><!--end col-->
-                        
-                                <div class="md:col-span-4">
-                                    <ul class="list-none footer-list mt-6">
-                                        <li><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> My account </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Order History </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Wish List </a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Newsletter</a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Affiliate</a></li>
-                                        <li class="mt-[10px]"><a href="#" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> Returns</a></li>
-                                    </ul>
-                                </div><!--end col-->
+                                @foreach($columns ?? [] as $column)
+                                    <div class="md:col-span-4">
+                                        <ul class="list-none footer-list mt-6">
+                                            @foreach($column->attributes as $attribute)
+                                                <li><a href="{{ $attribute->name ?? '' }}" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ $attribute->link ?? '' }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
 

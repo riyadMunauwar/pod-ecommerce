@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('view_style', ['mega', 'list'])->default('list');
             $table->string('link', 3200)->nullable();
             $table->integer('order')->nullable();
             $table->boolean('is_published')->nullable()->default(true);

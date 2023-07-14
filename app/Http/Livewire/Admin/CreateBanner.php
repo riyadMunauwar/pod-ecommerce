@@ -16,6 +16,10 @@ class CreateBanner extends Component
     public $name;
     public $show_in_page;
     public $banner_link;
+    public $title;
+    public $sub_title;
+    public $button_text;
+    public $button_link;
     public $is_published = true;
     public $image;
 
@@ -41,6 +45,10 @@ class CreateBanner extends Component
             'name' => $this->name,
             'show_in_page' => $this->show_in_page,
             'banner_link' => $this->banner_link,
+            'title' => $this->title,
+            'sub_title' => $this->sub_title,
+            'button_text' => $this->button_text,
+            'button_link' => $this->button_link,
             'is_published' => $this->is_published,
         ]);
 

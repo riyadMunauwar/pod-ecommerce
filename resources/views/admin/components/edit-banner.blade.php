@@ -30,6 +30,26 @@
                 <x-input wire:model.debounce="banner.banner_link" id="banner_link" class="block h-8 mt-1 w-full" type="text" />
             </div>
 
+            <div>
+                <x-label  for="title" value="{{ __('Title') }}" />
+                <x-ui.textarea wire:model.debounce="banner.title" id="title" class="block mt-1 w-full" type="text" />
+            </div>
+
+            <div>
+                <x-label  for="sub_title" value="{{ __('Sub Title') }}" />
+                <x-ui.textarea wire:model.debounce="banner.sub_title" id="sub_title" class="block mt-1 w-full" type="text" />
+            </div>
+
+            <div>
+                <x-label for="button_text" value="{{ __('Button Text') }}" />
+                <x-input wire:model.debounce="banner.button_text" id="button_text" class="block h-8 mt-1 w-full" type="text" />
+            </div>
+
+            <div>
+                <x-label for="button_link" value="{{ __('Button Link') }}" />
+                <x-input wire:model.debounce="banner.button_link" id="button_link" class="block h-8 mt-1 w-full" type="text" />
+            </div>
+
                 <div>
                     <x-label for="parent" value="{{ __('image') }}" />
 

@@ -23,6 +23,7 @@ class CreateEditMenu extends Component
     public $name;
     public $link;
     public $order;
+    public $view_style;
     public $icon;
     public $old_icon;
     public $is_published;
@@ -30,8 +31,9 @@ class CreateEditMenu extends Component
 
 
     protected $rules = [
-        'name' => ['required', 'string'],
-        'link' => ['nullable', 'string'],
+        'name' => ['required', 'string', 'max:255'],
+        'link' => ['nullable', 'string', 'max:255'],
+        'view_style' => ['required', 'string', 'max:255'],
         'order' => ['nullable', 'integer'],
         'is_published' => ['required', 'boolean'],
         'category_id' => ['nullable', 'integer'],
@@ -62,6 +64,7 @@ class CreateEditMenu extends Component
         $menu->name = $this->name;
         $menu->order = $this->order;
         $menu->link = $this->link;
+        $menu->view_style = $this->view_style;
         $menu->category_id = $this->category_id;
         $menu->is_published = $this->is_published;
 
@@ -88,6 +91,7 @@ class CreateEditMenu extends Component
         $menu->name = $this->name;
         $menu->order = $this->order;
         $menu->link = $this->link;
+        $menu->view_style = $this->view_style;
         $menu->category_id = $this->category_id;
         $menu->is_published = $this->is_published;
 
@@ -123,6 +127,7 @@ class CreateEditMenu extends Component
         $this->name = $menu->name;
         $this->order = $menu->order;
         $this->link = $menu->link;
+        $this->view_style = $menu->view_style;
         $this->is_published = $menu->is_published;
         $this->category_id = $menu->category_id;
         $this->old_icon = $menu->iconUrl();
