@@ -32,15 +32,15 @@ class Banner extends Model implements HasMedia
                 
                 $this->addMediaConversion('image')
                     ->width(1500)
-                    ->height(305)
+                    ->height(600)
                     ->format('webp')
-                    ->quality(95);
+                    ->quality(100);
 
                 $this->addMediaConversion('square')
                     ->width(1080)
                     ->height(1080)
                     ->format('webp')
-                    ->quality(95);
+                    ->quality(100);
 
             });
     }
