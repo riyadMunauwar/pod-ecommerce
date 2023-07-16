@@ -65,8 +65,6 @@ Route::middleware([
 ])->prefix('designer')->as('designer.')->group(function () {
 
     Route::view('/', 'designer.pages.dashboard')->name('dashboard');
-    Route::view('/register', 'designer.pages.register')->name('register');
-    Route::view('/login', 'designer.pages.login')->name('login');
 
 });
 
@@ -86,5 +84,10 @@ Route::middleware([
 
 
 
+Route::view('/designer/register', 'designer.pages.register')->name('designer.register');
+Route::view('/designer/login', 'designer.pages.login')->name('designer.login');
+
+Route::view('/vendor/register', 'vendor.pages.register')->name('vendor.register');
+Route::view('/vendor/login', 'vendor.pages.login')->name('vendor.login');
 
 Route::view('/', 'front.pages.home')->name('home');
