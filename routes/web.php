@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Services\SweetAlertToast;
-use App\Facades\SweetAlert;
 
 
 /*
@@ -20,8 +18,8 @@ use App\Facades\SweetAlert;
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+    'verified',
+])->prefix('admin')->group(function () {
 
     Route::view('/dashboard', 'admin.pages.dashboard')->name('dashboard');
     Route::view('/products/create', 'admin.pages.products.create')->name('products.create');
@@ -57,6 +55,33 @@ Route::middleware([
     Route::view('/reports/products-search', 'admin.pages.reports.products-search-report')->name('reports.products-search');
     Route::view('/reports/customer-orders', 'admin.pages.reports.customer-orders-report')->name('reports.customer-orders');
 
+});
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->prefix('designer')->as('designer.')->group(function () {
+
+    Route::view('/', 'designer.pages.dashboard')->name('dashboard');
+    Route::view('/register', 'designer.pages.register')->name('register');
+    Route::view('/login', 'designer.pages.login')->name('login');
+
+});
+
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->prefix('vendor')->as('vendor.')->group(function () {
+
+    Route::view('/', 'vendor.pages.dashboard')->name('dashboard');
+    Route::view('/register', 'vendor.pages.register')->name('register');
+    Route::view('/login', 'vendor.pages.login')->name('login');
+ 
 });
 
 
