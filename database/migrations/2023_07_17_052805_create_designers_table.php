@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('design_items', function (Blueprint $table) {
+        Schema::create('designers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained();
-            $table->foreignId('design_id')->constrained();
+            $table->enum('account_status', ['pending', 'processing', 'active', 'suspend'])->default('pending');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('design_items');
+        Schema::dropIfExists('designers');
     }
 };

@@ -28,6 +28,8 @@ return new class extends Migration
             $table->unsignedBigInteger('views')->default(0)->nullable();
             $table->unsignedBigInteger('share')->default(0)->nullable();
             $table->boolean('is_published')->default(true)->nullable();
+            $table->boolean('is_featured')->default(false)->nullable();
+            $table->boolean('is_own')->default(false)->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

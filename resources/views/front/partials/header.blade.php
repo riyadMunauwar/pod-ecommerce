@@ -229,17 +229,7 @@
                         <li><a href="{{ route('vendor.register') }}" class="sub-menu-item">Be a Vendor</a></li>
                     </ul>
                 </li>
-
-                <li class="has-submenu parent-parent-menu-item">
-
-                    <a href="javascript:void(0)">Login</a><span class="menu-arrow"></span>
-
-                    <ul class="submenu">
-                        <li><a href="{{ route('designer.login') }}" class="sub-menu-item">Desinger</a></li>
-                        <li><a href="{{ route('vendor.login') }}" class="sub-menu-item">Vendor</a></li>
-                    </ul>
-                </li>
-                        
+                                        
             </ul><!--end navigation menu-->
         </div><!--end navigation-->
     </div><!--end container-->

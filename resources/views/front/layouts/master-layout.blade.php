@@ -20,12 +20,11 @@
         <link href="{{ asset('techwind-assets/libs/mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('techwind-assets/css/tailwind.css') }}" rel="stylesheet" type="text/css">
 
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles For This Page -->
         @stack('styles')
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
         @livewireStyles
