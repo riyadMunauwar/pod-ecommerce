@@ -65,6 +65,7 @@ Route::middleware([
 ])->prefix('designer')->as('designer.')->group(function () {
 
     Route::view('/', 'designer.pages.dashboard')->name('dashboard');
+    Route::view('/design/create', 'designer.pages.add-design')->name('create');
 
 });
 
