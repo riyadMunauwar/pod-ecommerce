@@ -137,7 +137,10 @@
                 Add new
             </a>
             <a href="" class="border-l cursor-pointer flex items-center text-sm py-1 px-3 hover:bg-gray-700" >
-                My Design
+                Design List
+            </a>
+            <a href="" class="border-l cursor-pointer flex items-center text-sm py-1 px-3 hover:bg-gray-700" >
+                All Design List
             </a>
         </div>
     </div>

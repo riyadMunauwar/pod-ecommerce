@@ -72,7 +72,7 @@
                             <div class="">
                                 <span class="uppercase bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ strtoupper($attribute) }}</span>
                             </div>
-                            <div class="col-span-5 flex flex flex-col gap-2 md:gap-0 md:flex-row">
+                            <div class="col-span-5 flex flex-col gap-2 md:gap-0 md:flex-row">
                                 @foreach($values as $value)
                                     <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{{ $value }}</span>
                                 @endforeach

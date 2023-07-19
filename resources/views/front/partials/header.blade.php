@@ -112,23 +112,26 @@
             @auth
                 <li class="dropdown inline-block relative">
                     <button data-dropdown-toggle="dropdown" class="dropdown-toggle btn btn-icon rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white inline-flex" type="button">
-                        <i class="mdi mdi-account"></i>
+                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                     </button>
                     <!-- Dropdown menu -->
                     <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 hidden" onclick="event.stopPropagation();">
                         <ul class="py-2 text-start" aria-labelledby="dropdownDefault">
                             <li>
-                                <a href="shop-account.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-user align-middle me-1"></i> Account</a>
+                                <a href="" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-user align-middle me-1"></i> Account</a>
                             </li>
                             <li>
-                                <a href="shop-cart.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-clipboard-notes align-middle me-1"></i> Order History</a>
+                                <a href="" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-clipboard-notes align-middle me-1"></i> Order History</a>
                             </li>
                             <li>
-                                <a href="shop-checkout.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-arrow-circle-down align-middle me-1"></i> Download</a>
+                                <a href="" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-arrow-circle-down align-middle me-1"></i> Profile</a>
                             </li>
                             <li class="border-t border-gray-100 dark:border-gray-800 my-2"></li>
-                            <li>
-                                <a href="auth-login.html" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-sign-out-alt align-middle me-1"></i> Logout</a>
+                            <li>                            
+                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                    @csrf
+                                    <a @click.prevent="$root.submit();" href="{{ route('logout') }}" class="block py-1.5 px-4 hover:text-indigo-600"><i class="uil uil-sign-out-alt align-middle me-1"></i>Logout</a>
+                                </form>
                             </li>
                         </ul>
                     </div>
