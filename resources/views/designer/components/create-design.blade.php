@@ -145,7 +145,7 @@
                     @if($products->count() > 0)
                     <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
                         @foreach($products as $product)
-                            <li class="pb-3 sm:pb-4">
+                            <li class="blcok pb-3 sm:pb-4">
                                 <div class="flex items-center space-x-4">
                                     <div class="flex-shrink-0">
                                         <img class="w-8 h-8 rounded-full" src="{{ $product->thumbnailUrl('thumb') }}" alt="{{ $product->name ?? '' }}">
