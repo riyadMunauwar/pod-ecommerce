@@ -1,7 +1,7 @@
 
 @php
 
-    $products = \App\Models\Product::latest()->inRandomOrder()->take(8)->get();
+    $products = \App\Models\Product::inRandomOrder()->take(8)->get();
 
 @endphp
 
@@ -43,7 +43,7 @@
                     <div class="mt-4">
                         <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">{{ $product->name ?? '' }}</a>
                         <div class="flex justify-between items-center mt-1">
-                            <p class="text-green-600">BDT {{ $product->sale_price ?? '' }}<del class="text-red-600">BDT {{ $product->regular_price ?? '' }}</del></p>
+                            <p class="text-green-600">{{ $product->sale_price ?? '' }}<del class="text-red-600">{{ $product->regular_price ?? '' }}</del></p>
                             <ul class="font-medium text-amber-400 list-none">
                                 <li class="inline"><i class="mdi mdi-star"></i></li>
                                 <li class="inline"><i class="mdi mdi-star"></i></li>
