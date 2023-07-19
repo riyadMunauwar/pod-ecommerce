@@ -26,6 +26,6 @@ class CreateDesign extends Component
 
     private function getProducts()
     {
-        return Product::paginate(10);
+        return Product::paginate(6);
     }
 }

@@ -168,6 +168,10 @@
                     @else 
                         <span class="text-xs text-gray-400 block text-center">No Available Product !</span>
                     @endif
+
+                    <div class="mt-4">
+                        {{ $products->links() }}
+                    </div>
                 </div>
             </div>
 
