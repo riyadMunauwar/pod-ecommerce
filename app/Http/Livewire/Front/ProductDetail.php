@@ -19,7 +19,7 @@ class ProductDetail extends Component
     {
         $id = request()->id;
 
-        if($id) return redirect()->route('home');
+        if(!$id) return redirect()->route('home');
 
         $product = Product::find($id);
 
