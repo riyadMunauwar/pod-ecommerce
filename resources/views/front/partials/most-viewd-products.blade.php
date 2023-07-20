@@ -31,7 +31,7 @@
 
                         <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
                             <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                            <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
+                            <li class="mt-1"><a href="{{ route('product-detail', ['slug' => $product->slug, 'id' => $product->id]) }}" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
                             <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
                         </ul>
 
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">{{ $product->name ?? '' }}</a>
+                        <a href="{{ route('product-detail', ['slug' => $product->slug, 'id' => $product->id]) }}" class="hover:text-indigo-600 text-lg font-semibold">{{ $product->name ?? '' }}</a>
                         <div class="flex justify-between items-center mt-1">
                             <p class="text-green-600">{{ $product->sale_price ?? '' }}<del class="text-red-600">{{ $product->regular_price ?? '' }}</del></p>
                             <ul class="font-medium text-amber-400 list-none">

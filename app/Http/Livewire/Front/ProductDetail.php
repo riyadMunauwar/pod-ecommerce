@@ -13,7 +13,7 @@ class ProductDetail extends Component
     use WithSweetAlertToast;
 
 
-    public $design;
+    public $product;
 
     public function mount()
     {
@@ -21,11 +21,11 @@ class ProductDetail extends Component
 
         if($id) return redirect()->route('home');
 
-        $design = Product::find($id);
+        $product = Product::find($id);
 
-        if(!$design) return abort(404);
+        if(!$product) return abort(404);
 
-        $this->design = $design;
+        $this->product = $product;
 
     }
 

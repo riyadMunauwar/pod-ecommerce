@@ -4,12 +4,12 @@
     <section class="relative table w-full py-20 lg:py-24 bg-gray-50 dark:bg-slate-800">
         <div class="container relative">
             <div class="grid grid-cols-1 mt-14">
-                <h3 class="text-3xl leading-normal font-semibold">Product / Item Detail</h3>
+                <h3 class="text-3xl leading-normal font-semibold">Product / {{ $product->name ?? '' }} Detail</h3>
             </div><!--end grid-->
 
             <div class="relative mt-3">
                 <ul class="breadcrumb tracking-[0.5px] mb-0 inline-block">
-                    <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-indigo-600"><a href="index-shop.html">Techwind</a></li>
+                    <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-indigo-600"><a href="/">Home</a></li>
                     <li class="inline breadcrumb-item uppercase text-[13px] font-bold text-indigo-600" aria-current="page">Item Detail</li>
                 </ul>
             </div>
@@ -37,9 +37,9 @@
 
                 <div class="lg:col-span-7 md:col-span-6">
                     <div class="lg:ms-6">
-                        <h5 class="text-2xl font-semibold">Branded T-Shirts</h5>
+                        <h5 class="text-2xl font-semibold">{{ $product->name ?? '' }}</h5>
                         <div class="mt-2">
-                            <span class="text-slate-400 font-semibold me-1">$16USD <del class="text-red-600">$21USD</del></span>
+                            <span class="text-slate-400 font-semibold me-1">BDT {{ $product->sale_price ?? '' }} <del class="text-red-600">BDT {{ $product->regular_price ?? '' }}</del></span>
 
                             <ul class="list-none inline-block text-orange-400">
                                 <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
