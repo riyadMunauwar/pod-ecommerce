@@ -92,3 +92,6 @@ Route::view('/vendor/register', 'vendor.pages.register')->name('vendor.register'
 Route::view('/vendor/login', 'vendor.pages.login')->name('vendor.login');
 
 Route::view('/', 'front.pages.home')->name('home');
+Route::view('/checkout', 'front.pages.checkout')->name('checkout');
+Route::view('/cart', 'front.pages.cart')->name('cart');
+Route::view('/{slug}/{id}', 'front.pages.product-detail')->name('product-detail');
