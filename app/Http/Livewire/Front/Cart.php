@@ -8,10 +8,6 @@ class Cart extends Component
 {
     public function render()
     {
-        return <<<'blade'
-            <div>
-                {{-- Be like water. --}}
-            </div>
-        blade;
+        return view('front.components.cart');
     }
 }

@@ -94,8 +94,8 @@
                         </li>
 
                         <li class="py-1.5 px-4">
-                            <a href="javascript:void(0)" class="btn btn-sm rounded-md bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white">View Cart</a>
-                            <a href="javascript:void(0)" class="btn btn-sm rounded-md bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white">Checkout</a>
+                            <a href="{{ route('cart') }}" class="btn btn-sm rounded-md bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white">View Cart</a>
+                            <a href="{{ route('checkout') }}" class="btn btn-sm rounded-md bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white">Checkout</a>
                             <p class="text-sm text-slate-400 mt-1">*T&C Apply</p>
                         </li>
                 

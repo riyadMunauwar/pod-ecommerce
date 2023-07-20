@@ -18,7 +18,7 @@
                         <img src="{{ $product->thumbnailUrl('small') }}" alt="">
 
                         <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                            <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
+                            <a href="{{ route('cart') }}" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
                         </div>
 
                         <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
