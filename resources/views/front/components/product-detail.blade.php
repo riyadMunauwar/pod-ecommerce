@@ -67,7 +67,7 @@
 
                         <div class="grid lg:grid-cols-2 grid-cols-1 gap-[30px] mt-4">
 
-                            @foreach($product->variation_option as $attribute => $values)
+                            @foreach($product->variation_options as $attribute => $values)
                                 <div class="flex items-center">
                                     <h5 class="text-lg font-semibold me-2">{{ $attribute }}:</h5>
                                     <div class="">
@@ -122,7 +122,7 @@
                         <div class="hidden" id="addinfo" role="tabpanel" aria-labelledby="addinfo-tab">
                             <table class="w-full text-start">
                                 <tbody>
-                                    @foreach($product->variation_option as $attribute => $values)
+                                    @foreach($product->variation_options as $attribute => $values)
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
                                             <td class="font-semibold py-4" style="width: 100px;">{{ $attribute }}</td>
                                             <td class="text-slate-400 py-4">{{ implode(', ', $values) }}</td>
