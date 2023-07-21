@@ -8,7 +8,7 @@
 <div class="container-fluid relative">
     <div class="grid grid-cols-1 relative">
 
-        <div class="tiny-eight-item">
+        <div class="tiny-six-item">
             @foreach($products as $product)
                 <div class="tiny-slide">
                     <div class="card border-0 rounded-0">
