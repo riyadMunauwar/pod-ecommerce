@@ -22,7 +22,7 @@
 
             @if($home_bottom_banner->button_text)
                 <div class="mt-6">
-                    <a href="{{ $home_bottom_banner->button_link ?? '' }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2"><i class="mdi mdi-cart-outline"></i> {{ $home_bottom_banner->button_link ?? '' }}</a>
+                    <a href="{{ $home_bottom_banner->button_link ?? '' }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2"><i class="mdi mdi-cart-outline"></i> {{ $home_bottom_banner->button_text ?? '' }}</a>
                 </div>
             @endif
         </div><!--end grid-->
