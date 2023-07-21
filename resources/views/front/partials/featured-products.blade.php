@@ -4,7 +4,7 @@
 
 @endphp
 
-<section class="relative md:py-24 py-16">
+<section class="relative md:py-24 pt-16">
     <div class="container relative md:mt-24 mt-16">
         <div class="grid md:grid-cols-12 grid-cols-1 pb-8 items-end">
             <div class="lg:col-span-8 md:col-span-6 md:text-start text-center">
