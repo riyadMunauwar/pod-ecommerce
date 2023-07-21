@@ -7,7 +7,7 @@
 
 
 <section class="relative pt-16">
-    <div class="container relative mt-16">
+    <div class="container relative">
         <div class="grid md:grid-cols-12 grid-cols-1 items-center">
             <div class="lg:col-span-8 md:col-span-6 md:text-start text-center">
                 <h3 class="text-2xl leading-normal font-semibold">Most Viewed Products</h3>
