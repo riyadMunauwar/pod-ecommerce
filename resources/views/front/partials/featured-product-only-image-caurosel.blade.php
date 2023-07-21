@@ -5,7 +5,7 @@
 @endphp
 
 <!-- Insta Post Start -->
-<div class="container-fluid relative">
+<div class="container relative">
     <div class="grid grid-cols-1 relative">
 
         <div class="tiny-five-item">

@@ -6,7 +6,7 @@
  
  <!-- Start -->
  <section class="relative md:py-24 py-16 pt-5">
-    <div class="container-fluid relative">
+    <div class="container relative">
         <div class="grid grid-cols-1">
             <div class="relative z-2 transition-all duration-500 ease-in-out sm:-mt-[200px] -mt-[140px] m-0">
                 <div class="grid grid-cols-1 mt-8">
