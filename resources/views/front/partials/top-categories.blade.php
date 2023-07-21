@@ -17,7 +17,7 @@
                 <div class="group relative overflow-hidden hover:shadow-lg hover:dark:shadow-gray-800 rounded-md transition-all duration-500 p-6 text-center">
                     <img src="{{ $category->iconUrl('small') }}" class="rounded-full shadow-md dark:shadow-gray-800 h-20 w-20 block mx-auto mb-2" alt="">
 
-                    <a href="{{ route('category-archieve', ['category_slug', $category->slug]) }}" class="font-semibold hover:text-indigo-600 text-lg">{{ $category->name ?? '' }}</a>
+                    <a href="{{ route('category-archieve', ['category_slug' => $category->slug]) }}" class="font-semibold hover:text-indigo-600 text-lg">{{ $category->name ?? '' }}</a>
                 </div>
             @endforeach
         </div><!--end grid-->
