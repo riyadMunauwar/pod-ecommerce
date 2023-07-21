@@ -3,13 +3,13 @@
     <section class="relative table w-full py-20 lg:py-24 bg-gray-50 dark:bg-slate-800">
         <div class="container relative">
             <div class="grid grid-cols-1 mt-14">
-                <h3 class="text-3xl leading-normal font-semibold">Shop Grid</h3>
+                <h3 class="text-3xl leading-normal font-semibold">{{ $category->name ?? '' }}</h3>
             </div><!--end grid-->
 
             <div class="relative mt-3">
                 <ul class="breadcrumb tracking-[0.5px] mb-0 inline-block">
-                    <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-indigo-600"><a href="index-shop.html">Techwind</a></li>
-                    <li class="inline breadcrumb-item uppercase text-[13px] font-bold text-indigo-600" aria-current="page">Product Grid Two</li>
+                    <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-indigo-600"><a href="/">Home</a></li>
+                    <li class="inline breadcrumb-item uppercase text-[13px] font-bold text-indigo-600" aria-current="page">{{ $category->name ?? '' }}</li>
                 </ul>
             </div>
         </div><!--end container-->
@@ -150,261 +150,45 @@
                     </div><!--end grid-->
     
                     <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-                        <div class="group">
-                            <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                                <img src="assets/images/shop/items/s1.jpg" alt="">
+
+
+                        @foreach($products ?? [] as $product)
+                            <div class="group">
+                                <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
+                                    <img src="{{ $product->thumnailUrl('small') }}" alt="">
+            
+                                    <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
+                                        <a href="" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
+                                    </div>
+            
+                                    <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                        <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
+                                        <li class="mt-1"><a href="{{ route('product-detail', ['slug' => $product->slug, 'id' => $product->id]) }}" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
+                                        <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
+                                    </ul>
         
-                                <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                                    <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
-                                </div>
-        
-                                <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                    <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                                    <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
-                                    <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
-                                </ul>
-    
-                                <ul class="list-none absolute top-[10px] start-4">
-                                    <li><a href="javascript:void(0)" class="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">New</a></li>
-                                </ul>
-                            </div>
-    
-                            <div class="mt-4">
-                                <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">Branded T-Shirt</a>
-                                <div class="flex justify-between items-center mt-1">
-                                    <p class="text-green-600">$16.00 <del class="text-red-600">$21.00</del></p>
-                                    <ul class="font-medium text-amber-400 list-none">
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
+                                    <ul class="list-none absolute top-[10px] start-4">
+                                        <li><a href="javascript:void(0)" class="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">New</a></li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div><!--end content-->
-    
-                        <div class="group">
-                            <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                                <img src="assets/images/shop/items/s2.jpg" alt="">
         
-                                <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                                    <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
+                                <div class="mt-4">
+                                    <a href="{{ route('product-detail', ['slug' => $product->slug, 'id' => $product->id]) }}" class="hover:text-indigo-600 text-lg font-semibold">{{ $product->name ?? '' }}</a>
+                                    <div class="flex justify-between items-center mt-1">
+                                        <p class="text-green-600">{{ $product->sale_price ?? '' }} <del class="text-red-600">{{ $product->regular_price ?? '' }}</del></p>
+                                        <ul class="font-medium text-amber-400 list-none">
+                                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                                        </ul>
+                                    </div>
                                 </div>
-        
-                                <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                    <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                                    <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
-                                    <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
-                                </ul>
+                            </div><!--end content-->
+                        @endforeach
     
-                                <ul class="list-none absolute top-[10px] start-4">
-                                    <li><a href="javascript:void(0)" class="bg-green-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">Featured</a></li>
-                                </ul>
-                            </div>
-    
-                            <div class="mt-4">
-                                <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">Shopping Bag</a>
-                                <div class="flex justify-between items-center mt-1">
-                                    <p class="text-green-600">$16.00 <del class="text-red-600">$21.00</del></p>
-                                    <ul class="font-medium text-amber-400 list-none">
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end content-->
-                        
-                        <div class="group">
-                            <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                                <img src="assets/images/shop/items/s3.jpg" alt="">
-        
-                                <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                                    <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
-                                </div>
-        
-                                <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                    <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                                    <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
-                                    <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
-                                </ul>
-                            </div>
-    
-                            <div class="mt-4">
-                                <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">Elegent Watch</a>
-                                <div class="flex justify-between items-center mt-1">
-                                    <p class="text-green-600">$16.00 <del class="text-red-600">$21.00</del></p>
-                                    <ul class="font-medium text-amber-400 list-none">
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end content-->
-    
-                        <div class="group">
-                            <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                                <img src="assets/images/shop/items/s4.jpg" alt="">
-        
-                                <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                                    <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
-                                </div>
-        
-                                <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                    <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                                    <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
-                                    <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
-                                </ul>
-                            </div>
-    
-                            <div class="mt-4">
-                                <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">Casual Shoes</a>
-                                <div class="flex justify-between items-center mt-1">
-                                    <p class="text-green-600">$16.00 <del class="text-red-600">$21.00</del></p>
-                                    <ul class="font-medium text-amber-400 list-none">
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end content-->
-    
-                        <div class="group">
-                            <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                                <img src="assets/images/shop/items/s5.jpg" alt="">
-        
-                                <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                                    <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
-                                </div>
-        
-                                <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                    <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                                    <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
-                                    <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
-                                </ul>
-    
-                                <ul class="list-none absolute top-[10px] start-4">
-                                    <li><a href="javascript:void(0)" class="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">New</a></li>
-                                </ul>
-                            </div>
-    
-                            <div class="mt-4">
-                                <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">Earphones</a>
-                                <div class="flex justify-between items-center mt-1">
-                                    <p class="text-green-600">$16.00 <del class="text-red-600">$21.00</del></p>
-                                    <ul class="font-medium text-amber-400 list-none">
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end content-->
-    
-                        <div class="group">
-                            <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                                <img src="assets/images/shop/items/s6.jpg" alt="">
-        
-                                <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                                    <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
-                                </div>
-        
-                                <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                    <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                                    <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
-                                    <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
-                                </ul>
-                            </div>
-    
-                            <div class="mt-4">
-                                <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">Elegent Mug</a>
-                                <div class="flex justify-between items-center mt-1">
-                                    <p class="text-green-600">$16.00 <del class="text-red-600">$21.00</del></p>
-                                    <ul class="font-medium text-amber-400 list-none">
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end content-->
-    
-                        <div class="group">
-                            <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                                <img src="assets/images/shop/items/s7.jpg" alt="">
-        
-                                <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                                    <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
-                                </div>
-        
-                                <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                    <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                                    <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
-                                    <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
-                                </ul>
-                            </div>
-    
-                            <div class="mt-4">
-                                <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">Sony Headphones</a>
-                                <div class="flex justify-between items-center mt-1">
-                                    <p class="text-green-600">$16.00 <del class="text-red-600">$21.00</del></p>
-                                    <ul class="font-medium text-amber-400 list-none">
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end content-->
-    
-                        <div class="group">
-                            <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                                <img src="assets/images/shop/items/s8.jpg" alt="">
-        
-                                <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
-                                    <a href="shop-cart.html" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
-                                </div>
-        
-                                <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                    <li><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-heart"></i></a></li>
-                                    <li class="mt-1"><a href="shop-item-detail.html" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-eye-outline"></i></a></li>
-                                    <li class="mt-1"><a href="javascript:void(0)" class="btn btn-icon btn-sm rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i class="mdi mdi-bookmark-outline"></i></a></li>
-                                </ul>
-    
-                                <ul class="list-none absolute top-[10px] start-4">
-                                    <li><a href="javascript:void(0)" class="bg-blue-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">Sale</a></li>
-                                </ul>
-                            </div>
-    
-                            <div class="mt-4">
-                                <a href="shop-item-detail.html" class="hover:text-indigo-600 text-lg font-semibold">Wooden Stools</a>
-                                <div class="flex justify-between items-center mt-1">
-                                    <p class="text-green-600">$16.00 <del class="text-red-600">$21.00</del></p>
-                                    <ul class="font-medium text-amber-400 list-none">
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                        <li class="inline"><i class="mdi mdi-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end content-->
+                       
                     </div><!--end grid-->
     
                     <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
