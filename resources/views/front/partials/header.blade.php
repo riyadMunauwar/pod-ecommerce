@@ -176,7 +176,7 @@
                                             <ul>
                                                 <li class="megamenu-head">{{ $child->name ?? '' }}</li>
                                                 @foreach($child->children ?? [] as $grandChild)
-                                                    <li><a href="" class="sub-menu-item">{{ $grandChild->name ?? '' }}</a></li>
+                                                    <li><a href="{{ route('category-archieve', ['category_slug' => $grandChild->slug ?? '']) }}" class="sub-menu-item">{{ $grandChild->name ?? '' }}</a></li>
                                                 @endforeach
                                             </ul>
                                         </li>
@@ -201,14 +201,14 @@
                                                         <ul class="submenu">
 
                                                             @foreach($child->children ?? [] as $grandChild)
-                                                                <li><a href="" class="sub-menu-item">{{ $grandChild->name ?? '' }}</a></li>
+                                                                <li><a href="{{ route('category-archieve', ['category_slug' => $grandChild->slug ?? '']) }}" class="sub-menu-item">{{ $grandChild->name ?? '' }}</a></li>
                                                             @endforeach
 
                                                         </ul>  
                                                     </li>
 
                                                 @else 
-                                                    <li><a href="" class="sub-menu-item">{{ $child->name ?? '' }}</a></li>
+                                                    <li><a href="{{ route('category-archieve', ['category_slug' => $child->slug ?? '']) }}" class="sub-menu-item">{{ $child->name ?? '' }}</a></li>
                                                 @endif
                                             </ul> 
                                         </li>
