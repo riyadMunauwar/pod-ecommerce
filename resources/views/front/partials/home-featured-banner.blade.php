@@ -6,7 +6,7 @@
 
 @if($home_featured_banners)
 
-    <section class="relative pt-16">
+    <section class="relative py-16">
         <div class="container relative">
             <div id="grid" class="md:flex w-full justify-center mx-auto mt-4">
                 @foreach($home_featured_banners as $banner)
