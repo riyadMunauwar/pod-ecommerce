@@ -1,4 +1,4 @@
-<x-admin.master-layout title="Create Banner | Ebnshop">
+<x-admin.master-layout title="Create Banner | ElitG">
     <div class="grid grid-cols-1 md:grid-cols-4 md:gap-5">
         <div>
             <livewire:admin.create-banner />
