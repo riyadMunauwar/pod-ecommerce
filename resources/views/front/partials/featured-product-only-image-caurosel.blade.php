@@ -24,7 +24,7 @@
         </div>
 
         <div class="absolute top-2/4 -translate-y-2/4 start-2/4 ltr:-translate-x-2/4 rtl:translate-x-2/4 text-center hidden md:block">
-            <a href="https://www.instagram.com/shreethemes/" target="_blank" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Follow Now</a>
+            <a href="" target="_blank" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Follow Now</a>
         </div>
     </div><!--end grid-->
 </div><!--end container-->
