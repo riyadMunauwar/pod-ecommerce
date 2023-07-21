@@ -8,12 +8,12 @@
 <div class="container-fluid relative">
     <div class="grid grid-cols-1 relative">
 
-        <div class="tiny-twelve-item">
+        <div class="tiny-eight-item">
             @foreach($products as $product)
                 <div class="tiny-slide">
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
-                            <a href="{{ $product->thumbnailUrl('small') }}" class="lightbox d-inline-block" title="">
+                            <a href="" class="lightbox d-inline-block" title="">
                                 <img src="{{ $product->thumbnailUrl('small') }}" class="" alt="Insta Post">
                                 <div class="overlay bg-dark"></div>
                             </a>
