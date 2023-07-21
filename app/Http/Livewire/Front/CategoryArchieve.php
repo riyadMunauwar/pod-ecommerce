@@ -29,7 +29,7 @@ class CategoryArchieve extends Component
 
     private function getProducts()
     {
-        return Product::inRandomOrder()->paginate(12);
+        return Product::inRandomOrder()->take(12)->get();
     }
 
 
