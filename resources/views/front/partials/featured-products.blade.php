@@ -1,6 +1,6 @@
 @php
 
-    $products = \App\Models\Product::latest()->take(6)->get();
+    $products = \App\Models\Product::inRandomOrder()->take(8)->get();
 
 @endphp
 
