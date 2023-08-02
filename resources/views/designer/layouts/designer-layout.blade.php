@@ -45,9 +45,9 @@
 
         @stack('modals')
 
-        @stack('scripts')
-
         @livewireScripts
+
+        @stack('scripts')
 
         <!-- Sweet Alert -->
         <script src="{{ asset('assets/sweetalert2/sweetalert2.min.js') }}"></script>
