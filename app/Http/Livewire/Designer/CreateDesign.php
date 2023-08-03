@@ -15,6 +15,7 @@ class CreateDesign extends Component
     use WithSweetAlert;
     use WithSweetAlertToast;
 
+    public $product_id;
     public $title;
     public $slug;
     public $design_sale_price;
@@ -70,6 +71,11 @@ class CreateDesign extends Component
 
     }
 
+    
+    public function selectProduct($id)
+    {
+        dd($id);
+    }
 
     private function getProducts($search, $isIntStr)
     {
