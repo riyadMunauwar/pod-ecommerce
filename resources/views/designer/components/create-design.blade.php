@@ -111,17 +111,17 @@
 
         </div>
 
-        <div wire:ignore class="col-span-3">
+        <div class="col-span-3">
             <div class="bg-white p-1 rounded-sm">
                 <div id="canvas" class="w-full aspect-square relative">
 
                     <div id="background" class="absolute w-full h-full inset-0">
-                        <img class="block w-full h-full" src="https://elitg.com/storage/25/conversions/red-small.webp" alt="">
+                        <img class="block w-full h-full" src="{{ $product_photo }}" alt="">
                     </div>
 
                     <div id="overlay" class="absolute w-full h-full inset-0"></div>
 
-                    <div id="design" class="absolute w-20 h-20 top-1/2 left-1/2">
+                    <div wire:ignore id="design" class="absolute w-20 h-20 top-1/2 left-1/2">
                         <img class="block w-full h-full" src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="">
                         <div class="absolute w-full h-full inset-0 hover:cursor-move hover:border">
                             <div class="resize-handle bg-white"></div>

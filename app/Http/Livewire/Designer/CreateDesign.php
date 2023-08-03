@@ -16,6 +16,7 @@ class CreateDesign extends Component
     use WithSweetAlertToast;
 
     public $product_id;
+    public $product_photo;
     public $title;
     public $slug;
     public $design_sale_price;
@@ -74,7 +75,10 @@ class CreateDesign extends Component
     
     public function selectProduct($id)
     {
-        dd($id);
+        $product = Product::find($id);
+
+        $this->product_id = $product->id;
+        $this->product_photo = $product->thumbnailUrl('medium');
     }
 
     private function getProducts($search, $isIntStr)
