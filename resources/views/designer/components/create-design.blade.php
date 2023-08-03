@@ -93,6 +93,7 @@
                         <input id="rotation" type="range" value="0" min="-180" max="180" class="w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700">
                     </div>
 
+                    @if(!$design_image)
                     <div>
                         <div class="flex items-center justify-center w-full">
                             <label for="dropzone-file" class="flex flex-col items-center justify-center w-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
@@ -103,10 +104,14 @@
                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                 </div>
-                                <input id="dropzone-file" type="file" class="hidden" />
+                                <input wire:model.debounce="design_image" id="dropzone-file" type="file" class="hidden" />
                             </label>
                         </div> 
                     </div>
+                    @else 
+
+
+                    @endif
                 </div>
 
 
@@ -116,7 +121,7 @@
                 @endif
 
                 <!-- Loading State -->
-                <div wire:loading wire:target="selectProduct" class="absolute w-full h-full inset-0 bg-black opacity-50">
+                <div wire:loading wire:target="selectProduct, design_image" class="absolute w-full h-full inset-0 bg-black opacity-50">
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 items-center justify-center">
                         <p class="text-white text-sm">Loading Editor...</p>
                         <div role="status">
@@ -143,12 +148,14 @@
 
                     <div id="overlay" class="absolute w-full h-full inset-0"></div>
 
-                    <div wire:ignore id="design" class="absolute w-20 h-20 top-1/2 left-1/2">
-                        <img class="block w-full h-full" src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="">
-                        <div class="absolute w-full h-full inset-0 hover:cursor-move hover:border">
-                            <div class="resize-handle bg-white"></div>
+                    @if($design_image)
+                        <div wire:ignore id="design" class="absolute w-20 h-20 top-1/2 left-1/2">
+                            <img class="block w-full h-full" src="{{ $design_image->temporaryUrl() }}" alt="">
+                            <div class="absolute w-full h-full inset-0 hover:cursor-move hover:border">
+                                <div class="resize-handle bg-white"></div>
+                            </div>
                         </div>
-                    </div>
+                    @endif
 
                     <!-- Diable Overlay -->
                     @if(!$product_id)

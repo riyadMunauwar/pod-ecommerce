@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Designer;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\Traits\WithSweetAlert;
 use App\Traits\WithSweetAlertToast;
 use App\Models\Design;
@@ -10,12 +11,14 @@ use App\Models\DesignItem;
 use App\Models\Product;
 use App\Models\Category;
 
+
 class CreateDesign extends Component
 {
+    use WithFileUploads;
     use WithSweetAlert;
     use WithSweetAlertToast;
 
-    public $product_id;
+    public $product_id = 5;
     public $product_photo;
     public $title;
     public $slug;
@@ -28,6 +31,7 @@ class CreateDesign extends Component
     public $description;
 
     // Design Specific Property
+    public $design_image;
     public $design_top;
     public $design_left;
     public $design_width;
@@ -35,6 +39,7 @@ class CreateDesign extends Component
     public $design_opacity_color;
     public $design_opacity;
     public $design_rotate_angel;
+    public $design_resources;
 
 
     // Search Property
@@ -79,6 +84,15 @@ class CreateDesign extends Component
 
         $this->product_id = $product->id;
         $this->product_photo = $product->thumbnailUrl('medium');
+    }
+
+    
+
+    public function updatedDesignImage($value)
+    {
+        if($value){
+            return $this->dispatchBrowserEvent('init:design-js');
+        }
     }
 
     private function getProducts($search, $isIntStr)
