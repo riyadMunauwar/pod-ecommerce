@@ -112,7 +112,7 @@
 
                 <!-- Diable Overlay -->
                 @if(!$product_id)
-                    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+                    <div class="absolute cursor-not-allowed top-0 left-0 w-full h-full bg-black opacity-50"></div>
                 @endif
 
                 <!-- Loading State -->
@@ -152,7 +152,7 @@
 
                     <!-- Diable Overlay -->
                     @if(!$product_id)
-                        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+                        <div class="absolute cursor-not-allowed top-0 left-0 w-full h-full bg-black opacity-50"></div>
                     @endif
                     <!-- Loading State -->
                     <div wire:loading wire:target="selectProduct" class="absolute w-full h-full inset-0 bg-black opacity-50">
