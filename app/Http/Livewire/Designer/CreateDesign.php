@@ -18,7 +18,7 @@ class CreateDesign extends Component
     use WithSweetAlert;
     use WithSweetAlertToast;
 
-    public $product_id = 5;
+    public $product_id;
     public $product_photo;
     public $title;
     public $slug;
@@ -110,7 +110,7 @@ class CreateDesign extends Component
 
     private function getInitData()
     {
-       
+       $this->products = Product::published()->inRandomOrder()->take(10)->get();
     }
 
     private function isIntegerString($str) {
