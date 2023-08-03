@@ -146,7 +146,7 @@
                         <img class="block w-full h-full" src="{{ $product_photo ?? asset('assets/images/t-shirt-placeholder.png') }}" alt="">
                     </div>
 
-                    <div id="overlay" class="absolute w-full h-full inset-0"></div>
+                    <div wire:ignore id="overlay" class="absolute w-full h-full inset-0"></div>
 
                     @if($design_image)
                         <div wire:ignore id="design" class="absolute w-20 h-20 top-1/2 left-1/2">
