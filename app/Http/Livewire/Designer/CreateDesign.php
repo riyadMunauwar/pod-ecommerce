@@ -95,6 +95,13 @@ class CreateDesign extends Component
         }
     }
 
+
+    public function removeDesign()
+    {
+        $this->design_image->delete();
+        $this->design_image = null;
+    }
+
     private function getProducts($search, $isIntStr)
     {
         if($isIntStr){
@@ -110,7 +117,7 @@ class CreateDesign extends Component
 
     private function getInitData()
     {
-       $this->products = Product::published()->inRandomOrder()->take(10)->get();
+       $this->products = Product::published()->inRandomOrder()->take(8)->get();
     }
 
     private function isIntegerString($str) {
