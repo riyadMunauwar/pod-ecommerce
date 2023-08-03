@@ -111,7 +111,9 @@
 
 
                 <!-- Diable Overlay -->
-                <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+                @if(!$product_id)
+                    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+                @endif
 
                 <!-- Loading State -->
                 <div wire:loading wire:target="selectProduct" class="absolute w-full h-full inset-0 bg-black opacity-50">
@@ -149,8 +151,9 @@
                     </div>
 
                     <!-- Diable Overlay -->
-                    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-
+                    @if(!$product_id)
+                        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+                    @endif
                     <!-- Loading State -->
                     <div wire:loading wire:target="selectProduct" class="absolute w-full h-full inset-0 bg-black opacity-50">
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 items-center justify-center">
