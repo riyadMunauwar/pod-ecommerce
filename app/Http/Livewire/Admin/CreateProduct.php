@@ -81,7 +81,7 @@ class CreateProduct extends Component
         'is_grocery' => ['nullable', 'boolean'],
         'brand_id' => ['nullable', 'integer'],
         'thumbnail' => ['required','image'],
-        'gallery' => ['nullable', 'image'],
+        // 'gallery' => ['nullable', 'image'],
 
         'variations.*.stock_qty' => ['required', 'numeric', 'min:1'],
     ];
