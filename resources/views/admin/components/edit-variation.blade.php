@@ -1,6 +1,6 @@
 <div>
     @if($is_edit_mode_on)
-    <x-ui.edit-modal class="max-w-3xl">
+    <x-ui.edit-modal class="max-w-xl">
         <div class="p-5 md:pl-10 md:pb-10 md:pr-10 bg-white rounded-md">
 
             <div class="flex justify-end mb-2">
@@ -13,7 +13,7 @@
 
             <x-validation-errors class="mb-4" />
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="grid grid-cols-1 gap-5">
 
                 <div>
                     <x-label  for="stock" value="{{ __('Stock') }}" />
