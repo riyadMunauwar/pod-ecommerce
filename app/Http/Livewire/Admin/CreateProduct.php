@@ -82,7 +82,7 @@ class CreateProduct extends Component
         'brand_id' => ['nullable', 'integer'],
         'thumbnail' => ['nullable','image'],
 
-        'variations.*.stock_qty' => ['nullable', 'numeric'],
+        'variations.*.stock_qty' => ['required', 'numeric', 'min:1'],
     ];
 
 
@@ -398,7 +398,7 @@ class CreateProduct extends Component
     private function validateVariations()
     {
         $this->validate([
-            'variations.*.stock_qty' => ['required', 'numeric'],
+            'variations.*.stock_qty' => ['required', 'numeric', 'min:1'],
         ]);
     }
 
@@ -445,7 +445,7 @@ class CreateProduct extends Component
     {
         $baseVariant = [
             '_id' => $index + 1,
-            'stock_qty' => 0,
+            'stock_qty' => 1,
             'options' => $variationOptions,
         ];
 
