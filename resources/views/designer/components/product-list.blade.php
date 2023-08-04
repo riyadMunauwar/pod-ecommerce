@@ -383,7 +383,7 @@
                 <img
                     src="{{ $product->thumbnailUrl('small') }}"
                     alt=""
-                    class="w-full aspect-squre object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                    class="w-full aspect-square object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
 
                 <div class="relative bg-white pt-3">
