@@ -1,6 +1,6 @@
 <section>
     @if($is_variations_show)
-        <x-ui.edit-modal class="max-w-7xl">
+        <x-ui.edit-modal class="max-w-2xl">
             <div class="rounded-md p-5 md:p-10 bg-white">
                     <div class="flex justify-between mb-5">
                         <h4 class="text-2xl font-bold dark:text-white">{{ $product_name }}</h4>
@@ -16,15 +16,8 @@
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-                                        <th scope="col" class="px-4 py-3">Image</th>
                                         <th scope="col" class="px-4 py-3">Attribute</th>
-                                        <th scope="col" class="px-4 py-3">Regular Price</th>
-                                        <th scope="col" class="px-4 py-3">Sale Price</th>
                                         <th scope="col" class="px-4 py-3">Stock</th>
-                                        <th scope="col" class="px-4 py-3">Sku</th>
-                                        <th scope="col" class="px-4 py-3">Weight</th>
-                                        <th scope="col" class="px-4 py-3">Height</th>
-                                        <th scope="col" class="px-4 py-3">Length</th>
                                         <th scope="col" class="px-4 py-3 text-center">Status</th>
                                         <th scope="col" class="px-4 py-3">
                                             <span class="sr-only">Actions</span>
@@ -34,19 +27,10 @@
                                 <tbody>
                                     @foreach($variations ?? [] as $variation)
                                     <tr class="border-b dark:border-gray-700">
-                                        <th scope="row" class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <img class="w-14 h-14 border rounded-full object-cover" src="{{ $variation->imageUrl('small') }}" alt="{{ $variation->name ?? '' }}">
-                                        </th>
                                         <td class="px-4 py-1">
                                             @foreach($variation->options as $attribue => $value)
                                                 <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-1.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">{{ $value }}</span>
                                             @endforeach
-                                        </td>
-                                        <td class="px-4 py-1">
-                                            {{ $variation->regular_price }}
-                                        </td>
-                                        <td class="px-4 py-1">
-                                            {{ $variation->sale_price }}
                                         </td>
                                         <td class="px-4 py-1">
                                             @if($variation->stock_qty < 10)
@@ -54,18 +38,6 @@
                                             @else 
                                                 <span class="text-green-500">{{ $variation->stock_qty }}</span>
                                             @endif
-                                        </td>
-                                        <td class="px-4 py-1">
-                                            {{ $variation->sku }}
-                                        </td>
-                                        <td class="px-4 py-1">
-                                            {{ $variation->weight }}
-                                        </td>
-                                        <td class="px-4 py-1">
-                                            {{ $variation->height }}
-                                        </td>
-                                        <td class="px-4 py-1">
-                                            {{ $variation->length }}
                                         </td>
                                         <td class="px-4 py-1">
                                             @if($variation->is_published)
