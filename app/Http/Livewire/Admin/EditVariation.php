@@ -24,6 +24,7 @@ class EditVariation extends Component
 
     protected $rules = [
         'variation.stock_qty' => ['required', 'integer'],
+        'variation.is_published' => ['required', 'boolean'],
     ];
 
 
