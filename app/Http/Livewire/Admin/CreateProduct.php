@@ -63,11 +63,11 @@ class CreateProduct extends Component
         'meta_title' => ['nullable', 'string'],
         'meta_tags' => ['nullable', 'string'],
         'meta_description' => ['nullable', 'string'],
-        'name' => ['nullable', 'string'],
-        'slug' => ['nullable', 'string'],
+        'name' => ['required', 'string'],
+        'slug' => ['required', 'string'],
         'regular_price' => ['nullable', 'numeric'],
-        'sale_price' => ['nullable', 'numeric'],
-        'stock_qty' => ['nullable', 'numeric'],
+        'sale_price' => ['required', 'numeric'],
+        'stock_qty' => ['required', 'numeric'],
         'height' => ['nullable', 'string'],
         'width' => ['nullable', 'string'],
         'length' => ['nullable', 'string'],
@@ -82,15 +82,7 @@ class CreateProduct extends Component
         'brand_id' => ['nullable', 'integer'],
         'thumbnail' => ['nullable','image'],
 
-        'variations.*.image' => ['nullable', 'image'],
-        'variations.*.sale_price' => ['nullable', 'numeric'],
-        'variations.*.regular_price' => ['nullable', 'numeric'],
-        'variations.*.sku' => ['nullable', 'string'],
         'variations.*.stock_qty' => ['nullable', 'numeric'],
-        'variations.*.width' => ['nullable', 'numeric'],
-        'variations.*.height' => ['nullable', 'numeric'],
-        'variations.*.length' => ['nullable', 'numeric'],
-        'variations.*.weight' => ['nullable', 'numeric'],
     ];
 
 
@@ -165,8 +157,6 @@ class CreateProduct extends Component
 
         if(count($this->variations) > 0){
             $this->validateVariations();
-        }else {
-            $this->validateProduct();
         }
 
         
@@ -197,16 +187,7 @@ class CreateProduct extends Component
                 {
                     $variation['product_id'] = $product->id;
 
-                    $image = $variation['image'];
-
-                    // unset($variation['image']);
-                    // unset($variation['_id']);
-
                     $variant = Variation::create($variation);
-
-                    if($image){
-                        $variant->addMedia($image)->toMediaCollection('image');
-                    }
 
                 }
 
@@ -317,10 +298,6 @@ class CreateProduct extends Component
         $targetVariantIndex = array_search($id, array_column($this->variations, '_id'));
         $targetVariant = $this->variations[$targetVariantIndex];
 
-        if($targetVariant['image']){
-            $targetVariant['image']->delete();
-        }
-        
         unset($this->variations[$targetVariantIndex]);
         return $this->successToast('1 variation item removed');
     }
@@ -328,13 +305,6 @@ class CreateProduct extends Component
 
     public function removeAllVariation()
     {
-        foreach($this->variations as $variant)
-        {
-            if($variant['image']){
-                $variant['image']->delete();
-            }
-        }
-
         $this->variations = [];
         return $this->successToast('All veriation removed');
     }
@@ -424,29 +394,10 @@ class CreateProduct extends Component
     }
 
 
-    private function validateProduct()
-    {
-        $this->validate([
-            'name' => ['required', 'string'],
-            'slug' => ['required', 'string', 'unique:products'],
-            'regular_price' => ['nullable', 'numeric'],
-            'sale_price' => ['required', 'numeric'],
-            'stock_qty' => ['required', 'numeric'],
-            'short_description' => ['nullable', 'string'],
-            'thumbnail' => ['required','image'],
-        ]);
-    }
-
 
     private function validateVariations()
     {
         $this->validate([
-            'name' => ['required', 'string'],
-            'slug' => ['required', 'string', 'unique:products'],
-            'thumbnail' => ['required','image'],
-            'variations.*.image' => ['required', 'image'],
-            'variations.*.sale_price' => ['required', 'numeric'],
-            'variations.*.regular_price' => ['nullable', 'numeric'],
             'variations.*.stock_qty' => ['required', 'numeric'],
         ]);
     }
@@ -494,16 +445,8 @@ class CreateProduct extends Component
     {
         $baseVariant = [
             '_id' => $index + 1,
-            'sale_price' => 0,
-            'regular_price' => 0,
             'stock_qty' => 0,
             'options' => $variationOptions,
-            'weight' => 0,
-            'height' => 0,
-            'length' => 0,
-            'width' => 0,
-            'sku' => '',
-            'image' => null,
         ];
 
         return $baseVariant;

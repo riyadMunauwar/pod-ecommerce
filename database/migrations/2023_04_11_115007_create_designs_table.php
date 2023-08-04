@@ -22,8 +22,6 @@ return new class extends Migration
             $table->string('meta_title')->nullable();
             $table->string('meta_description', 2024)->nullable();
             $table->string('meta_tags')->nullable();
-            $table->text('feature')->nullable();
-            $table->text('description')->nullable();
             $table->float('rank_score')->default(0)->nullable();
             $table->unsignedBigInteger('views')->default(0)->nullable();
             $table->unsignedBigInteger('share')->default(0)->nullable();

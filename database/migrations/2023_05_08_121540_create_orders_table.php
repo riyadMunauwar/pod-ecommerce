@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->decimal('total', 12, 2);
-            $table->decimal('shipping_cost', 12, 2)->nullable();
+            $table->float('shipping_cost')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('vendor_id')->nullalbe()->constrained('users', 'id');
             $table->foreignId('designer_id')->nullalbe()->constrained('users', 'id');

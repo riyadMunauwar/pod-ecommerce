@@ -150,70 +150,12 @@
 
                             <div class="grid grid-cols-6 gap-2 mt-2">
 
-                                <div>
-                                    <x-label class="mb-1 block" for="gallery" value="{{ __('Image') }}" />
-                                    @if($variant['image'])
-                                    <div class="relative">
-                                        <div class="flex items-center justify-center">
-                                            @if ($variant['image'])
-                                                <img class="h-14 rounded-sm object-contain block" src="{{ $variant['image']->temporaryUrl() }}">
-                                            @endif
-                                        </div>
-                                        <div class="flex items-center justify-center mt-2">
-                                            <button wire:click.debounce="removeVariantImage({{ $variant['_id'] }})" class="inline-flex items-center px-1 bg-gray-800 border border-transparent rounded-md font-semibold text-[10px] text-white tracking-widest ">Remove</button>
-                                        </div>
-                                    </div>
-                                    @else
-                                    <div>
-                                        <div class="flex items-center justify-center">
-                                            <label class="w-full flex flex-col items-center px-1 py-1 bg-white text-blue rounded-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-gray-800">
-                                                   <span class="mt-1 text-xs leading-normal">Image</span>
-                                                <input wire:model="variations.{{ $loop->index }}.image" type='file' class="hidden" />
-                                            </label>
-                                        </div>
-                                    </div>
-                                    @endif
-                                </div>
-
-                                <div>
-                                    <x-label  for="reg_price" value="{{ __('Regular Price') }}" />
-                                    <x-input wire:model.debounce="variations.{{ $loop->index }}.regular_price" id="reg_price" class="block mt-1 h-8 w-full" type="number"/>
-                                </div>
-
-                                <div>
-                                    <x-label  for="sale_price" value="{{ __('Sale Price') }}" />
-                                    <x-input wire:model.debounce="variations.{{ $loop->index }}.sale_price" id="sale_price" class="block mt-1 h-8 w-full" type="number"/>
-                                </div>
 
                                 <div>
                                     <x-label  for="stock" value="{{ __('Stock Qty') }}" />
                                     <x-input wire:model.debounce="variations.{{ $loop->index }}.stock_qty" id="stock" class="block mt-1 h-8 w-full" type="number"/>
                                 </div>
 
-                                <div>
-                                    <x-label  for="sku" value="{{ __('Sku') }}" />
-                                    <x-input wire:model.debounce="variations.{{ $loop->index }}.sku" id="sku" class="block mt-1 h-8 w-full" type="text"/>
-                                </div>
-
-                                <div>
-                                    <x-label  for="weight" value="{{ __('Weight') }}" />
-                                    <x-input wire:model.debounce="variations.{{ $loop->index }}.weight" id="weight" class="block mt-1 h-8 w-full" type="number"/>
-                                </div>
-
-                                <div>
-                                    <x-label  for="height" value="{{ __('Height') }}" />
-                                    <x-input wire:model.debounce="variations.{{ $loop->index }}.height" id="height" class="block mt-1 h-8 w-full" type="number"/>
-                                </div>
-
-                                <div>
-                                    <x-label  for="width" value="{{ __('Width') }}" />
-                                    <x-input wire:model.debounce="variations.{{ $loop->index }}.width" id="width" class="block mt-1 h-8 w-full" type="number"/>
-                                </div>
-
-                                <div>
-                                    <x-label  for="length" value="{{ __('Length') }}" />
-                                    <x-input wire:model.debounce="variations.{{ $loop->index }}.length" id="length" class="block mt-1 h-8 w-full" type="number"/>
-                                </div>
                             </div>
                         </div>
                     @endforeach

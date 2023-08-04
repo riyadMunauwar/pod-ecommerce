@@ -39,7 +39,6 @@ return new class extends Migration
             $table->boolean('is_featured')->nullable()->default(false);
             $table->boolean('is_published')->nullable()->default(true);
             $table->boolean('is_grocery')->nullable()->default(false);
-            $table->boolean('is_ebnshop_own_product')->nullable()->default(true);
             $table->foreignId('brand_id')->nullable()->constrained();
             $table->string('cache_key')->nullable();
             $table->unsignedBigInteger('views')->nullable()->default(0);
