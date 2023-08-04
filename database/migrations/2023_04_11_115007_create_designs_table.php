@@ -33,7 +33,6 @@ return new class extends Migration
             $table->float('design_left')->nullable();
             $table->float('design_width')->nullable();
             $table->float('design_height')->nullable();
-            $table->float('design_opacity_color')->default('black')->nullable();
             $table->float('design_opacity')->nullable();
             $table->float('design_rotate_angel')->nullable();
             
