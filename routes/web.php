@@ -66,6 +66,7 @@ Route::middleware([
 
     Route::view('/', 'designer.pages.dashboard')->name('dashboard');
     Route::view('/design/create', 'designer.pages.add-design')->name('create');
+    Route::view('/products', 'designer.pages.product-list')->name('product-list');
 
 });
 

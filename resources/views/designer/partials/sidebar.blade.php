@@ -96,7 +96,7 @@
 
 
         <div x-transition.duration.150ms x-show="isOpen" class="pl-7">
-            <a href="{{ route('products.list') }}" class="border-l cursor-pointer flex items-center text-sm py-1 px-3 hover:bg-gray-700" >
+            <a href="{{ route('designer.product-list') }}" class="border-l cursor-pointer flex items-center text-sm py-1 px-3 hover:bg-gray-700" >
                 Product list
             </a>
         </div>
