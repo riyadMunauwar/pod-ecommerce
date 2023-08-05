@@ -1,7 +1,7 @@
 <div>
 
 
-
+@if($step === 1)
     <!-- Step 1 -->
     <div class="grid grid-cols-1 md:grid-cols-7 md:gap-5">
 
@@ -191,9 +191,6 @@
 
         <div class="col-span-2">
 
-
-
-        
             <!-- Product Search Option -->
             <div class="relative bg-white p-5 rounded-md space-y-3">
 
@@ -276,9 +273,180 @@
                 </div>
             </div>
 
+            <div class="bg-white p-5 flex justify-end rounded-md mt-5">
+                <button
+                    wire:click.debounce="setStep(2)"
+                    class="hover:border hover:border-blue-400 w-full inline-flex border items-center justify-center gap-2 rounded-md bg-white px-4 py-2 text-sm text-blue-500 shadow-sm focus:relative"
+                >
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                    </span>                    
+                    Next
+                </button>
+            </div>
+
         </div>
+
     </div>
     <!-- Step 1 End -->
+
+@endif 
+
+
+@if($step === 2)
+
+    <!-- Step 2 -->
+
+
+    <div class="">
+        <div class="grid grid-cols-1 md:grid-cols-6 md:gap-5">
+            <div class="col-span-4">
+                <div class="rounded-md bg-white p-5 md:p-10">
+                    <h1 class="font-bold text-xl mb-4">Design Details</h1>
+                    <x-validation-errors class="mb-4" />
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                        <div class="col-span-2">
+                            <x-label  for="title" value="{{ __('Title') }}" />
+                            <x-input wire:model.debounce="title" id="title" class="block mt-1 h-8 w-full" type="text" required />
+                        </div>
+
+                        <div class="col-span-2">
+                            <x-label for="slug" value="{{ __('Slug') }}" />
+                            <x-input wire:model.debounce="slug" id="slug" class="block mt-1 h-8 w-full" type="text" required />
+                        </div>
+
+                        <div class="">
+                            <x-label for="design_sale_price" value="{{ __('Only Design Sale Price') }}" />
+                            <x-input wire:model.debounce="design_sale_price" id="design_sale_price" class="block mt-1 h-8 w-full" type="number"/>
+                        </div>
+
+                        <div class="">
+                            <x-label for="design_regular_price" value="{{ __('Only Design Regular Price') }}" />
+                            <x-input wire:model.debounce="design_regular_price" id="design_regular_price" class="block mt-1 h-8 w-full" type="number"/>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="rounded-md bg-white p-5 md:p-10 md:mt-5">
+                    <h1 class="font-bold text-xl mb-4">SEO Details</h1>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                            <x-label  for="meta_title" value="{{ __('Meta Title') }}" />
+                            <x-input wire:model.debounce="meta_title" id="meta_title" class="block mt-1 h-8 w-full" type="text"  />
+                        </div>
+                        <div class="col-span-2">
+                            <x-label  for="meta_tags" value="{{ __('Meta Tags') }}" />
+                            <x-input wire:model.debounce="meta_tags" id="meta_tags" class="block mt-1 h-8 w-full" type="text" />
+                        </div>
+                        <div class="col-span-2">
+                            <x-label  for="meta_description" value="{{ __('Meta Description') }}" />
+                            <x-ui.textarea wire:model.debounce="meta_description" id="meta_description" class="block mt-1 w-full" type="text" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-span-2">
+                <div class="rounded-md bg-white p-5 md:p-10 grid grid-cols-1 gap-5">
+                        <div class="space-y-2">
+                            <div class="block">
+                                <label for="isPublished" class="flex items-center">
+                                    <x-checkbox wire:model="is_published" id="isPublished" name="remember" />
+                                    <span class="ml-2 text-sm text-gray-600">{{ __('Published') }}</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mt-2">
+                            <x-label class="mb-1 block" for="gallery" value="{{ __('Resources') }}" />
+                            @if($resources)
+                            <div class="mt-3">
+                                <div>
+                                    @if ($resources)
+                                        <ul class="space-y-2">
+                                            @foreach($resources as $resource)
+                                                <li class="flex gap-3 items-center justify-between">
+                                                    <span class="text-xs text-blue-400">
+                                                        {{ $resource->getClientOriginalName() }}
+                                                    </span>
+
+                                                    <span class="text-red-400 coursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                                        </svg>
+                                                    </span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </div>
+                                <div class="flex items-center justify-center mt-3">
+                                    <button
+                                        class="border border-red-400 text-red-400 inline-flex items-center gap-2 rounded-md bg-white px-2 py-1 text-sm shadow-sm focus:relative"
+                                    >
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        class="h-4 w-4"
+                                        >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                                        />
+                                        </svg>
+
+                                        Delete All
+                                    </button>
+                                </div>
+                            </div>
+                            @else
+                            <div class="mt-4">
+                                <div class="flex items-center justify-center">
+                                    <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-gray-800">
+                                        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                        </svg>
+                                        <span class="mt-2 text-base leading-normal">Upload Reserouces</span>
+                                        <input wire:model="resources" type='file' class="hidden" multiple />
+                                    </label>
+                                </div>
+                            </div>
+                            @endif
+                        </div>
+
+                        <div class="flex items-center justify-end">
+                            <x-button wire:click.debounce="setStep(1)" type="button" class="ml-4">
+                                {{ __('Previous') }}
+                            </x-button>
+
+                            <x-button wire:click.debounce="createDesign" type="button" class="ml-4">
+                                {{ __('Published') }}
+                            </x-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!-- End Step 2 -->
+@endif
+
+
+    <x-ui.text-loading-spinner loadingText="It will take a time... we are saving this product and optimizing your image..." wire:loading.flex wire:target="createProduct" />
+    <x-ui.text-loading-spinner loadingText="Uploading..." wire:loading.flex wire:target="resources" />
+    <x-ui.loading-spinner wire:loading.flex wire:target="setStep" />
+
 </div>
 
 

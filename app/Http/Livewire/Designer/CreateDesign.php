@@ -18,6 +18,10 @@ class CreateDesign extends Component
     use WithSweetAlert;
     use WithSweetAlertToast;
 
+
+    public $step = 1;
+
+    // Design Property
     public $product_id;
     public $product_photo;
     public $title;
@@ -27,8 +31,7 @@ class CreateDesign extends Component
     public $meta_title;
     public $meta_description;
     public $meta_tags;
-    public $feature;
-    public $description;
+    public $is_published;
 
     // Design Specific Property
     public $design_image;
@@ -48,6 +51,9 @@ class CreateDesign extends Component
     // Search Result
     public $products = [];
 
+    // Resources
+    public $resources = [];
+
 
     public function mount()
     {
@@ -59,6 +65,11 @@ class CreateDesign extends Component
         return view('designer.components.create-design');
     }
 
+
+    public function setStep($step)
+    {
+        $this->step = $step;
+    }
 
     
     public function searchProduct()
