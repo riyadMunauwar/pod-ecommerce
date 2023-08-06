@@ -305,6 +305,7 @@
             <div class="col-span-4">
                 <div class="rounded-md bg-white p-5 md:p-10">
                     <h1 class="font-bold text-xl mb-4">Design Details</h1>
+                    
                     <x-validation-errors class="mb-4" />
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -371,13 +372,13 @@
                                 <div>
                                     @if ($resources)
                                         <ul class="space-y-2">
-                                            @foreach($resources as $resource)
+                                            @foreach($resources as $key => $resource)
                                                 <li class="flex gap-3 items-center justify-between">
                                                     <span class="text-xs text-blue-400">
                                                         {{ $resource->getClientOriginalName() }}
                                                     </span>
 
-                                                    <span class="text-red-400 coursor-pointer">
+                                                    <span wire:click.debounce="removeResource({{ $key }})" class="text-red-400 cursor-pointer">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                                                         </svg>
@@ -389,6 +390,7 @@
                                 </div>
                                 <div class="flex items-center justify-center mt-3">
                                     <button
+                                        wire:click.debounce="removeAllResources"
                                         class="border border-red-400 text-red-400 inline-flex items-center gap-2 rounded-md bg-white px-2 py-1 text-sm shadow-sm focus:relative"
                                     >
                                         <svg
@@ -406,7 +408,7 @@
                                         />
                                         </svg>
 
-                                        Delete All
+                                        Remove All
                                     </button>
                                 </div>
                             </div>
@@ -425,12 +427,12 @@
                             @endif
                         </div>
 
-                        <div class="flex items-center justify-end">
-                            <x-button wire:click.debounce="setStep(1)" type="button" class="ml-4">
+                        <div class="flex items-center justify-between">
+                            <x-button wire:click.debounce="setStep(1)" type="button">
                                 {{ __('Previous') }}
                             </x-button>
 
-                            <x-button wire:click.debounce="createDesign" type="button" class="ml-4">
+                            <x-button wire:click.debounce="createDesign" type="button">
                                 {{ __('Published') }}
                             </x-button>
                         </div>
@@ -443,9 +445,9 @@
 @endif
 
 
-    <x-ui.text-loading-spinner loadingText="It will take a time... we are saving this product and optimizing your image..." wire:loading.flex wire:target="createProduct" />
+    <x-ui.text-loading-spinner loadingText="It will take a time... we are saving this design and optimizing your image..." wire:loading.flex wire:target="createDesign" />
     <x-ui.text-loading-spinner loadingText="Uploading..." wire:loading.flex wire:target="resources" />
-    <x-ui.loading-spinner wire:loading.flex wire:target="setStep" />
+    <x-ui.loading-spinner wire:loading.flex wire:target="setStep, removeAllResources, removeResource" />
 
 </div>
 

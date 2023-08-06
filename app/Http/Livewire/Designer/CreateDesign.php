@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Designer;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 use App\Traits\WithSweetAlert;
 use App\Traits\WithSweetAlertToast;
 use App\Models\Design;
-use App\Models\DesignItem;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -39,10 +39,28 @@ class CreateDesign extends Component
     public $design_left;
     public $design_width;
     public $design_height;
-    public $design_opacity_color;
     public $design_opacity;
     public $design_rotate_angel;
-    public $design_resources;
+
+
+    protected $rules = [
+        'product_id' => ['required', 'integer'],
+        'title' => ['required', 'string', 'max:255'],
+        'slug' => ['required', 'string', 'max:255'],
+        'design_sale_price' => ['required', 'numeric'],
+        'design_sale_price' => ['required', 'numeric'],
+        'meta_title' => ['required', 'string', 'max:255'],
+        'meta_description' => ['required', 'string', 'max:2024'],
+        'meta_tags' => ['required', 'string', 'max:255'],
+        'design_image' => ['required', 'image'],
+        'resources' => ['required'],
+        'design_top' => ['required', 'numeric'],
+        'design_left' => ['required', 'numeric'],
+        'design_width' => ['required', 'numeric'],
+        'design_height' => ['required', 'numeric'],
+        'design_rotate_angel' => ['required', 'numeric'],
+        'is_published' => ['required', 'boolean']
+    ];
 
 
     // Search Property
@@ -66,11 +84,65 @@ class CreateDesign extends Component
     }
 
 
+    public function updatedTitle($value)
+    {
+        if($value){
+            $this->slug = Str::slug($value);
+        }
+    }
+
+
     public function setStep($step)
     {
         $this->step = $step;
     }
 
+
+    public function createDesign()
+    {
+        $this->validate();
+        
+        try {
+
+            $design = new Design();
+
+            $design->title = $this->title;
+            $design->slug = $this->slug;
+            $design->design_sale_price = $this->design_sale_price;
+            $design->design_regular_price = $this->design_regular_price;
+            $design->meta_title = $this->meta_title;
+            $design->meta_description = $this->meta_description;
+            $design->meta_tags = $this->meta_tags;
+            $design->design_top = $this->design_top;
+            $design->design_left = $this->design_left;
+            $design->design_width = $this->design_width;
+            $design->design_height = $this->design_height;
+            $design->design_opacity = $this->design_opacity;
+            $design->design_rotate_angle = $this->design_rotate_angle;
+            $design->product_id = $this->product_id;
+            $design->user_id = auth()->id();
+
+            if(!$design->save()) return $this->error('Failed !', 'Failed to published design. Something went wrong. Please try again or contact with Elitg support team.');
+
+            if($this->design_image){
+                $design->addMedia($this->design_image)->toMediaCollection('design');
+            }
+
+            if(count($this->resources) > 0){
+                foreach($this->resources as $resource){
+                    $design->addMedia($resource)->toMediaCollection('resources');
+                }
+            }
+
+            return $this->success('Published', 'Your design is publsihed successfully.');
+
+
+        }catch(\Exception $e){
+
+        }
+
+
+    }
     
     public function searchProduct()
     {
@@ -86,6 +158,33 @@ class CreateDesign extends Component
             $this->products = $this->getProducts($this->search, false);
         }
 
+    }
+
+
+    public function removeAllResources()
+    {
+        foreach($this->resources as $resource){
+            $resource->delete();
+        }
+
+        $this->resources = [];
+    }
+
+
+    public function removeResource($index)
+    {
+        $newResources = array_filter($this->resources, function($value, $key) use($index){
+            
+            if($key === $index){
+                $value->delete();
+                return false;
+            }else {
+                return true;
+            }
+
+        }, ARRAY_FILTER_USE_BOTH);
+
+        $this->resources = $newResources;
     }
 
     
