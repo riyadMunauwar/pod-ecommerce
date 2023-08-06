@@ -118,7 +118,7 @@ class CreateDesign extends Component
             $design->design_width = $this->design_width;
             $design->design_height = $this->design_height;
             $design->design_opacity = $this->design_opacity;
-            $design->design_rotate_angle = $this->design_rotate_angle;
+            $design->design_rotate_angel = $this->design_rotate_angel;
             $design->product_id = $this->product_id;
             $design->user_id = auth()->id();
 
