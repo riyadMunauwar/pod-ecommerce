@@ -95,6 +95,8 @@ class CreateDesign extends Component
     public function setStep($step)
     {
         $this->step = $step;
+
+        $this->dispatchBrowserEvent('init:design-js');
     }
 
 
