@@ -8,6 +8,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use LaracraftTech\LaravelDateScopes\DateScopes;
+use App\Models\Product;
 
 class Design extends Model implements HasMedia
 {
@@ -15,6 +16,13 @@ class Design extends Model implements HasMedia
     use InteractsWithMedia;
     use DateScopes;
 
+
+
+    // relationship
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 
 
 
