@@ -138,7 +138,7 @@ class CreateDesign extends Component
 
 
         }catch(\Exception $e){
-
+            return $this->error('Error', $e->getMessage());
         }
 
 
