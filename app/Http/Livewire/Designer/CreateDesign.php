@@ -96,7 +96,7 @@ class CreateDesign extends Component
     {
         $this->step = $step;
 
-        $this->dispatchBrowserEvent('init:design-js');
+        return $this->dispatchBrowserEvent('init:design-js');
     }
 
 
