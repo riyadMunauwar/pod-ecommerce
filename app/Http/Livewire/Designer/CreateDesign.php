@@ -136,7 +136,7 @@ class CreateDesign extends Component
             //     }
             // }
 
-            $categories = Product::find($this->product_id)->categories();
+            $categories = Product::find($this->product_id)->categories;
 
             dd($categories);
             return $this->success('Published', 'Your design is publsihed successfully.');
