@@ -85,7 +85,7 @@
 
                     <div>
                         <label for="opacity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Opacity {{ $design_opacity }}</label>
-                        <input id="opacity" type="range" value="2" min="0" max="9" class="w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700">
+                        <input id="opacity" type="range" min="0.00" max="1.00" step="0.01" value="0.50" class="w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700">
                     </div>
 
                     <div>

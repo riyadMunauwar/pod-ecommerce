@@ -29,6 +29,10 @@ return new class extends Migration
             $table->boolean('is_featured')->default(false)->nullable();
             $table->boolean('is_own')->default(false)->nullable();
 
+            $table->string('canvas_background_color')->nullable();
+            $table->float('canvas_opacity')->nullable();
+            
+            $table->float('design_top')->nullable();
             $table->float('design_top')->nullable();
             $table->float('design_left')->nullable();
             $table->float('design_width')->nullable();

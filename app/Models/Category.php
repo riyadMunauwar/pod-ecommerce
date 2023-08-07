@@ -68,7 +68,6 @@ class Category extends Model implements HasMedia
     }
 
     // Relation
-   
     public function children()
     {
         return $this->hasMany(Category::class, 'parent_id')->with('children');
@@ -105,6 +104,12 @@ class Category extends Model implements HasMedia
     }
     
 
+    public function desings()
+    {
+        return $this->belongsToMany(Design::class);
+    }
+
+    
     public function menu()
     {
         return $this->hasOne(Menu::class);

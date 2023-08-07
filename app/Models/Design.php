@@ -25,6 +25,24 @@ class Design extends Model implements HasMedia
     }
 
 
+    public function childCategories()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+    
+
+    public function parentCategory()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+    
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+
 
     public function registerMediaCollections(): void
     {
