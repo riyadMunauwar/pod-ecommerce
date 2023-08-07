@@ -516,10 +516,9 @@
                 let opacityValue = event.target.value;
                 let canvasOverlay = el('#overlay');
 
-                canvasOverlay.style.backgroundColor = 'black';
-                canvasOverlay.style.opacity = `.${opacityValue}`;
-
-                @this.set('design_opacity', parseInt(opacityValue));
+                canvasOverlay.style.backgroundColor = `rgba(0, 0, 0, ${opacityValue})`;
+  
+                @this.set('design_opacity', parseFloat(opacityValue));
 
             }
 
