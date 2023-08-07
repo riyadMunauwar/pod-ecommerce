@@ -22,7 +22,7 @@ class CreateDesign extends Component
     public $step = 1;
 
     // Design Property
-    public $product_id = 1;
+    public $product_id;
     public $product_photo;
     public $title;
     public $slug;
