@@ -66,7 +66,7 @@ class DesignList extends Component
 
         $search = $this->search;
 
-        $query = Design::query();
+        $query = Design::where('user_id', auth()->id());
 
         $query->when($this->search, function($query) use($search){
             $query->where('title', 'like', '%' . $search . '%');
