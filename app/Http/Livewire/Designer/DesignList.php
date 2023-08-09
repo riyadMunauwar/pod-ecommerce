@@ -69,7 +69,7 @@ class DesignList extends Component
         $query = Design::query();
 
         $query->when($this->search, function($query) use($search){
-            $query->where('name', 'like', '%' . $search . '%');
+            $query->where('title', 'like', '%' . $search . '%');
         });
 
         return $query->with('product', 'product.categories', 'product.brand')->paginate(25);

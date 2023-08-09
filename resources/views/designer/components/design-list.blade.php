@@ -55,11 +55,11 @@
                                 </td>
 
                                 <td class="px-4 py-1">
-                                    {{ number_format(210) }}
+                                    {{ number_format($design->product->sale_price) }}
                                 </td>
                             
                                 <td class="px-4 py-1">
-                                    {{ number_format($design->product->sale_price) }}
+                                    {{ number_format(210) }}
                                 </td>
                                 
                                 <td class="px-4 py-1">
