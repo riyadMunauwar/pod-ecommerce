@@ -103,4 +103,9 @@ class Design extends Model implements HasMedia
 
         return '';
     }
+
+    // Compute
+    public function salePrice(){
+        return $this->design_sale_price + $this->product->sale_price + 210;
+    }
 }

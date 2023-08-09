@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Designer;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Traits\WithSweetAlert;
-use App\Models\Product;
+use App\Models\Design;
 
 class DesignList extends Component
 {
@@ -16,59 +16,41 @@ class DesignList extends Component
     public $search;
 
     protected $listeners = [
-        'onProductCreated' => '$refresh',
-        'onProductUpdated' => '$refresh',
+        'onDesignCreated' => '$refresh',
+        'onDesignUpdated' => '$refresh',
         'onAddStock' => '$refresh',
         'onVariationDeleted' => '$refresh',
-        'onProductDelete' => 'deleteProduct',
+        'onDesignDelete' => 'deleteDesign',
     ];
 
 
     public function render()
     {
-        $products = $this->getProducts();
-        return view('designer.components.design-list', compact('products'));
+        $designs = $this->getDesigns();
+        return view('designer.components.design-list', compact('designs'));
     }
 
-    public function enableProductEditMode($id)
+    public function enableDesignEditMode($id)
     {
-        $this->emit('onProductEdit', $id);
+        $this->emit('onDesignEdit', $id);
     }
 
-
-    public function showVariationList($id)
+    public function confirmDeleteDesign($id)
     {
-        $this->emit('onVariatioShow', $id);
+        return $this->ifConfirmThenDispatch('onDesignDelete', $id, 'Are you sure ?', 'Design will delete permanently !');
     }
 
 
-    public function enableAddStockModal($productId, $varationId = null)
-    {
-        $this->emit('onAddStockModalShow', $productId);
-    }
-
-
-    public function confirmDeleteProduct($id)
-    {
-        return $this->ifConfirmThenDispatch('onProductDelete', $id, 'Are you sure ?', 'Product will delete permanently !');
-    }
-
-
-    public function deleteProduct($id)
+    public function deleteDesign($id)
     {
         try {
 
-            $product = Product::with('variations')->find($id);
+            $design = Design::with('variations')->find($id);
 
-            $product->categories()->detach();
+            $design->categories()->detach();
 
-            foreach($product->variations as $variant)
-            {
-                $variant->delete();
-            }
-
-            if($product->delete()){
-                return $this->success('Success', 'Product deleted successfully.');
+            if($design->delete()){
+                return $this->success('Success', 'Design deleted successfully.');
             }
 
         }catch(\Exception $e)
@@ -79,18 +61,18 @@ class DesignList extends Component
     }
 
 
-    private function getProducts()
+    private function getDesigns()
     {
 
         $search = $this->search;
 
-        $query = Product::query();
+        $query = Design::query();
 
         $query->when($this->search, function($query) use($search){
             $query->where('name', 'like', '%' . $search . '%');
         });
 
-        return $query->with('categories', 'brand')->withCount('variations')->paginate(25);
+        return $query->with('product', 'product.categories', 'product.brand')->paginate(25);
 
     }
 }
