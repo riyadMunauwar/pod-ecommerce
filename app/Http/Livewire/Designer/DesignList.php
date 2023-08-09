@@ -61,6 +61,11 @@ class DesignList extends Component
     }
 
 
+    public function showDesignImageModal($id)
+    {
+        return $this->emit('onShowDesignImageModal', $id);
+    }
+
     private function getDesigns()
     {
 
