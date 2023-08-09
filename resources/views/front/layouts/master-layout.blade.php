@@ -179,6 +179,11 @@
                 })
             });
 
+
+            function openDesignImage(id){
+                Livewire.emit('onDesignImageModalShow', id);
+            }
+
         </script>
     </body>
 </html>
