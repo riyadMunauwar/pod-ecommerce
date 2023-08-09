@@ -45,7 +45,7 @@ class DesignList extends Component
     {
         try {
 
-            $design = Design::with('variations')->find($id);
+            $design = Design::find($id);
 
             $design->categories()->detach();
 
