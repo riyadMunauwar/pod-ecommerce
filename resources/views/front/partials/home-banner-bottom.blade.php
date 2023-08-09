@@ -1,6 +1,6 @@
 @php 
 
-    $home_bottom_banner = \App\Models\Banner::published()->where('show_in_page', 'home')->where('name', 'home-bottom')->first();
+    $home_bottom_banner = \App\Models\Banner::published()->where('show_in_page', 'home-bottom')->first();
 
 @endphp
 
