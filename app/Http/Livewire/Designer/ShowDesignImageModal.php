@@ -30,7 +30,7 @@ class ShowDesignImageModal extends Component
     }
 
 
-    public function hideDesignImageShowModal()
+    public function hideShowDesignImageModal()
     {
         $this->reset();
         $this->is_show_design_image_modal = false; 
