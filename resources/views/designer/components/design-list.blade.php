@@ -42,7 +42,7 @@
                         @foreach($designs ?? [] as $design)
                             <tr class="border-b dark:border-gray-700">
                                 <th scope="row" class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img class="w-8 h-8 border rounded-full object-cover" src="{{ $design->thumbnailUrl('thumb') }}" alt="{{ $design->name ?? '' }}">
+                                    <img class="w-8 h-8 border rounded-full object-cover" src="{{ $design->product->thumbnailUrl('thumb') }}" alt="{{ $design->name ?? '' }}">
                                 </th>
                                 <td class="px-4 py-1">{{ \Illuminate\Support\Str::limit($design->title ?? '', 21, '...') }}</td>
                                 
