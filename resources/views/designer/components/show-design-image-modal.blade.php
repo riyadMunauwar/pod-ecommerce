@@ -9,6 +9,10 @@
                         </svg>
                     </span>
                 </div>
+
+                <div class="mt-3 relative aspect-square rounded-md">
+                    <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('medium')" />
+                </div>
             </div>
         </x-ui.edit-modal>
         <x-ui.loading-spinner wire:loading.flex wire:target="hideShowDesignImageModal" />
