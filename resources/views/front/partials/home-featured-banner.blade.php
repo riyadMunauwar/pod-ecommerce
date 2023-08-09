@@ -1,6 +1,6 @@
 @php 
 
-    $home_featured_banners = \App\Models\Banner::published()->where('show_in_page', 'home')->where('name', 'featured-banner')->take(3)->get();
+    $home_featured_banners = \App\Models\Banner::published()->where('name', 'home-featured')->take(3)->get();
 
 @endphp
 

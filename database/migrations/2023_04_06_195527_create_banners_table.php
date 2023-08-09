@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('show_in_page');
             $table->string('banner_link', 2048)->nullable();
             $table->string('title', 2048)->nullable();

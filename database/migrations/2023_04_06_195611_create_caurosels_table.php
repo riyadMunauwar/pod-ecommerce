@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('caurosels', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('show_in_page');
             $table->boolean('is_published')->nullable()->default(true);
             $table->string('cache_key')->nullable();
