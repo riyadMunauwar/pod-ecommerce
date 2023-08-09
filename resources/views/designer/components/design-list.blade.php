@@ -123,5 +123,5 @@
 
 
 @push('modals')
-    <livewire:admin.edit-design />
+    
 @endpush
