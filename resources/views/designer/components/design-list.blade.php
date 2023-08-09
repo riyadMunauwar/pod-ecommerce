@@ -118,7 +118,7 @@
             </nav>
         </div>
     </div>
-    <x-ui.loading-spinner wire:loading.flex wire:target="search, confirmDeleteDesign, deleteDesign, enableDesignEditMode" />
+    <x-ui.loading-spinner wire:loading.flex wire:target="search, showDesignImageModal, confirmDeleteDesign, deleteDesign, enableDesignEditMode" />
 </section>
 
 
