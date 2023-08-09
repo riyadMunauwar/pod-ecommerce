@@ -106,35 +106,35 @@ class CreateDesign extends Component
         
         try {
 
-            // $design = new Design();
+            $design = new Design();
 
-            // $design->title = $this->title;
-            // $design->slug = $this->slug;
-            // $design->design_sale_price = $this->design_sale_price;
-            // $design->design_regular_price = $this->design_regular_price;
-            // $design->meta_title = $this->meta_title;
-            // $design->meta_description = $this->meta_description;
-            // $design->meta_tags = $this->meta_tags;
-            // $design->design_top = $this->design_top;
-            // $design->design_left = $this->design_left;
-            // $design->design_width = $this->design_width;
-            // $design->design_height = $this->design_height;
-            // $design->design_opacity = $this->design_opacity;
-            // $design->design_rotate_angel = $this->design_rotate_angel;
-            // $design->product_id = $this->product_id;
-            // $design->user_id = auth()->id();
+            $design->title = $this->title;
+            $design->slug = $this->slug;
+            $design->design_sale_price = $this->design_sale_price;
+            $design->design_regular_price = $this->design_regular_price;
+            $design->meta_title = $this->meta_title;
+            $design->meta_description = $this->meta_description;
+            $design->meta_tags = $this->meta_tags;
+            $design->design_top = $this->design_top;
+            $design->design_left = $this->design_left;
+            $design->design_width = $this->design_width;
+            $design->design_height = $this->design_height;
+            $design->design_opacity = $this->design_opacity;
+            $design->design_rotate_angel = $this->design_rotate_angel;
+            $design->product_id = $this->product_id;
+            $design->user_id = auth()->id();
 
-            // if(!$design->save()) return $this->error('Failed !', 'Failed to published design. Something went wrong. Please try again or contact with Elitg support team.');
+            if(!$design->save()) return $this->error('Failed !', 'Failed to published design. Something went wrong. Please try again or contact with Elitg support team.');
 
-            // if($this->design_image){
-            //     $design->addMedia($this->design_image)->toMediaCollection('design');
-            // }
+            if($this->design_image){
+                $design->addMedia($this->design_image)->toMediaCollection('design');
+            }
 
-            // if(count($this->resources) > 0){
-            //     foreach($this->resources as $resource){
-            //         $design->addMedia($resource)->toMediaCollection('resources');
-            //     }
-            // }
+            if(count($this->resources) > 0){
+                foreach($this->resources as $resource){
+                    $design->addMedia($resource)->toMediaCollection('resources');
+                }
+            }
 
             $categories = Product::find($this->product_id)->categories->pluck('id')->toArray();
 
