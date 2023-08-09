@@ -6,13 +6,13 @@
     <div class="grid grid-cols-1 gap-5">
 
         <div>
-            <x-label for="name" value="{{ __('Name') }}" />
-            <x-input wire:model.debounce="name" id="name" class="block h-8 mt-1 w-full" type="text" />
-        </div>
-
-        <div>
             <x-label for="show_in_page" value="{{ __('Show In Page') }}" />
-            <x-input wire:model.debounce="show_in_page" id="show_in_page" class="block h-8 mt-1 w-full" type="text" />
+            <x-ui.select wire:model.debounce="show_in_page" id="show_in_page" class="block h-8 text-xs mt-1 w-full">
+                <option value="">Select</option>
+                <option value="home-top">Home Top</option>
+                <option value="home-bottom">Home Bottom</option>
+                <option value="home-featured">Home Featured</option>
+            </x-ui.select>
         </div>
 
         <div>

@@ -14,7 +14,6 @@ class Banner extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
-        'name',
         'show_in_page',
         'banner_link',
         'title',

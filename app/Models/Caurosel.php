@@ -11,7 +11,6 @@ class Caurosel extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
         'show_in_page',
         'is_published'
     ];

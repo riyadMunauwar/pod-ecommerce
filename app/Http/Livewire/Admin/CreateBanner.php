@@ -13,7 +13,6 @@ class CreateBanner extends Component
     use WithSweetAlert;
 
     // From State
-    public $name;
     public $show_in_page;
     public $banner_link;
     public $title;
@@ -24,7 +23,6 @@ class CreateBanner extends Component
     public $image;
 
     protected $rules = [
-        'name' => ['required', 'string'],
         'show_in_page' => ['required', 'string'],
         'banner_link' => ['nullable', 'string'],
         'is_published' => ['required', 'boolean'],
@@ -42,7 +40,6 @@ class CreateBanner extends Component
         $this->validate();
 
         $banner = Banner::create([
-            'name' => $this->name,
             'show_in_page' => $this->show_in_page,
             'banner_link' => $this->banner_link,
             'title' => $this->title,

@@ -20,7 +20,6 @@ class EditBanner extends Component
     public $new_image;
 
     protected $rules = [
-        'banner.name' => ['required', 'string'],
         'banner.show_in_page' => ['required', 'string', ],
         'banner.banner_link' => ['nullable', 'string', ],
         'banner.title' => ['nullable', 'string', ],
