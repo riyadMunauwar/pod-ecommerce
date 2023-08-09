@@ -52,3 +52,8 @@
         </div><!--end grid-->
     </div><!--end container-->
 </section>
+
+
+@push('modals')
+    <livewire:designer.show-design-image-modal />
+@endpush

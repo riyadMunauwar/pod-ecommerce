@@ -15,6 +15,3 @@
 </x-front.master-layout>
 
 
-@push('modals')
-    <livewire:designer.show-design-image-modal />
-@endpush
