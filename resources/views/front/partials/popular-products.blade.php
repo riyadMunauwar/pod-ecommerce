@@ -1,6 +1,6 @@
 @php
 
-    $designs = \App\Models\Design::inRandomOrder()->take(4)->get();
+    $designs = \App\Models\Design::inRandomOrder()->take(12)->get();
 
 @endphp
 
