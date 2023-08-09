@@ -138,7 +138,7 @@ class CreateDesign extends Component
 
             $categories = Product::find($this->product_id)->categories->pluck('id')->toArray();
 
-            dd($categories);
+            // dd($categories);
             return $this->success('Published', 'Your design is publsihed successfully.');
 
 
