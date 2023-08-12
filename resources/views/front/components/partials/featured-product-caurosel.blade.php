@@ -9,9 +9,9 @@
                         @foreach($designs as $design)
                             <div class="tiny-slide">
                                 <div class="group">
-                                    <div class="relative overflow-hidden shadow dark:shadow-gray-800">
-                                        <img src="{{ $design->product->thumbnailUrl('small') }}" alt="">
+                                    <div class="relative aspect-square overflow-hidden shadow dark:shadow-gray-800">
 
+                                        <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
 
                                         <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
                                             <a href="#" class="btn bg-slate-900 border-slate-900 text-white w-full">Add to Cart</a>
