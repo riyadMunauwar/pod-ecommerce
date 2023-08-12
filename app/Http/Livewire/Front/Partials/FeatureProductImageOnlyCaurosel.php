@@ -16,7 +16,7 @@ class FeatureProductImageOnlyCaurosel extends Component
 
     public function render()
     {
-        return view('front.components.partials.feature-product-image-only-caurosel');
+        return view('front.components.partials.featured-product-image-only-caurosel');
     }
 
     public function fetchData()
