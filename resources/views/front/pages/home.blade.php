@@ -7,7 +7,9 @@
 
 
     @include('front.partials.home-featured-banner')
-    @include('front.partials.most-viewd-products')
+
+    <livewire:front.partials.most-viewed-product />
+
     @include('front.partials.top-categories')
     @include('front.partials.popular-products')
     @include('front.partials.home-banner-bottom')

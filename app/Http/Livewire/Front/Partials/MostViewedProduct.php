@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Front\Partials;
 
 use Livewire\Component;
 
-class MostViewdProduct extends Component
+class MostViewedProduct extends Component
 {
     public function render()
     {
