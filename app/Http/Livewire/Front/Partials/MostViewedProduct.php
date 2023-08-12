@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Front\Partials;
 
 use Livewire\Component;
+use App\Models\Design;
 
 class MostViewedProduct extends Component
 {
