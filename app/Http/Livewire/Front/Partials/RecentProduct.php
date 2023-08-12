@@ -8,6 +8,6 @@ class RecentProduct extends Component
 {
     public function render()
     {
-        return view('livewire.front.partials.recent-product');
+        return view('front.partials.recent-product');
     }
 }

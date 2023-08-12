@@ -8,6 +8,6 @@ class FeatureProductImageOnlyCaurosel extends Component
 {
     public function render()
     {
-        return view('livewire.front.partials.feature-product-image-only-caurosel');
+        return view('front.partials.feature-product-image-only-caurosel');
     }
 }

@@ -8,6 +8,6 @@ class HomeBannerTop extends Component
 {
     public function render()
     {
-        return view('livewire.front.partials.home-banner-top');
+        return view('front.partials.home-banner-top');
     }
 }

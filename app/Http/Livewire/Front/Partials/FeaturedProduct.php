@@ -8,6 +8,6 @@ class FeaturedProduct extends Component
 {
     public function render()
     {
-        return view('livewire.front.partials.featured-product');
+        return view('front.partials.featured-product');
     }
 }

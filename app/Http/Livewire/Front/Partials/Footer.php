@@ -8,6 +8,6 @@ class Footer extends Component
 {
     public function render()
     {
-        return view('livewire.front.partials.footer');
+        return view('front.partials.footer');
     }
 }

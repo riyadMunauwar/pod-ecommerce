@@ -8,6 +8,6 @@ class MostViewdProduct extends Component
 {
     public function render()
     {
-        return view('livewire.front.partials.most-viewd-product');
+        return view('front.partials.most-viewd-product');
     }
 }
