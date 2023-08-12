@@ -33,13 +33,14 @@
     <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900">
 
         @include('front.partials.loader')
-        @include('front.partials.header')
+
+        <livewire:front.partials.header />
 
         <main>
             {{ $slot }}
         </main>
 
-        @include('front.partials.footer-2')
+        <livewire:front.partials.footer />
 
         @include('front.partials.cookie-popup')
         @include('front.partials.back-to-top')

@@ -8,6 +8,6 @@ class Header extends Component
 {
     public function render()
     {
-        return view('front.partials.header');
+        return view('front.components.partials.header');
     }
 }
