@@ -2,7 +2,7 @@
     <div class="container relative mt-16">
         <div class="grid grid-cols-1 items-center">
             <h3 class="text-2xl leading-normal font-semibold">Top Categories</h3>
-        </div><
+        </div>
 
         <div class="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 mt-8 gap-[30px]">
             @foreach($topCategories as $category)
