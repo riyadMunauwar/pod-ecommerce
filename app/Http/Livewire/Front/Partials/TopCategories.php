@@ -7,7 +7,7 @@ use App\Models\Category;
 
 class TopCategories extends Component
 {
-    public $categories = [];
+    public $topCategories = [];
 
 
     public function mount()
@@ -24,7 +24,7 @@ class TopCategories extends Component
 
     private function fetchData()
     {
-        $this->categories = Category::take(6)->get();
+        $this->topCategories = Category::take(6)->get();
     }
 
 }
