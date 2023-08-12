@@ -7,7 +7,7 @@ use App\Models\Design;
 
 class MostViewedProduct extends Component
 {
-    public $products = [];
+    public $designs = [];
 
 
     public function mount()
@@ -22,6 +22,6 @@ class MostViewedProduct extends Component
 
     private function fetchData()
     {
-        $this->products = Design::with('product')->inRandomOrder()->take(12)->get();
+        $this->designs = Design::with('product')->inRandomOrder()->take(12)->get();
     }
 }
