@@ -10,7 +10,7 @@
 
     <livewire:front.partials.most-viewed-product />
 
-    @include('front.partials.top-categories')
+    <livewire:front.partials.top-categories />
 
     <livewire:front.partials.popular-product />
 
