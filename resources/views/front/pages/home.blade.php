@@ -15,7 +15,9 @@
     <livewire:front.partials.popular-product />
 
     @include('front.partials.home-banner-bottom')
-    @include('front.partials.recent-products')
+
+    <livewire:front.partials.recent-product />
+
     @include('front.partials.featured-products')
     @include('front.partials.featured-product-only-image-caurosel')
     @include('front.partials.apps-download')
