@@ -5,7 +5,7 @@
         </div><!--end grid-->
 
         <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-            @foreach($desings as $design)
+            @foreach($designs as $design)
                 <div class="group">
                     <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
                         <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
