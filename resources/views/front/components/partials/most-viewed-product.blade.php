@@ -8,7 +8,7 @@
             @foreach($designs as $design)
                 <div class="group">
                     <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md transition-all duration-500">
-                        <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
+                    <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
 
                         <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 transition-all duration-500">
                             <a href="{{ route('cart') }}" class="btn bg-slate-900 border-slate-900 text-white w-full rounded-md">Add to Cart</a>
