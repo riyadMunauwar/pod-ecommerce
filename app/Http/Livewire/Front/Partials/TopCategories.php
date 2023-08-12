@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Front\Partials;
 
 use Livewire\Component;
-use App\Models\ategory;
+use App\Models\Category;
 
 class TopCategories extends Component
 {
@@ -26,5 +26,5 @@ class TopCategories extends Component
     {
         $this->categories = Category::take(6)->get();
     }
-    
+
 }
