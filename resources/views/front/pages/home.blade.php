@@ -18,7 +18,8 @@
 
     <livewire:front.partials.recent-product />
 
-    @include('front.partials.featured-products')
+    <livewire:front.partials.featured-product />
+
     @include('front.partials.featured-product-only-image-caurosel')
     @include('front.partials.apps-download')
 
