@@ -11,7 +11,9 @@
     <livewire:front.partials.most-viewed-product />
 
     @include('front.partials.top-categories')
-    @include('front.partials.popular-products')
+
+    <livewire:front.partials.popular-product />
+
     @include('front.partials.home-banner-bottom')
     @include('front.partials.recent-products')
     @include('front.partials.featured-products')
