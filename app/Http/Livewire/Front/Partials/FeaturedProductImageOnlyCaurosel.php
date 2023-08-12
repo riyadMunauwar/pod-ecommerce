@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Front\Partials;
 use Livewire\Component;
 use App\Models\Design;
 
-class FeatureProductImageOnlyCaurosel extends Component
+class FeaturedProductImageOnlyCaurosel extends Component
 {
     public $designs = [];
 
