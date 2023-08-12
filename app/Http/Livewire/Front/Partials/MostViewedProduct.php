@@ -17,7 +17,7 @@ class MostViewedProduct extends Component
 
     public function render()
     {
-        return view('front.partials.most-viewed-product');
+        return view('front.components.partials.most-viewed-product');
     }
 
     private function fetchData()

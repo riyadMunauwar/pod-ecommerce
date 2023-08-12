@@ -17,7 +17,7 @@ class FeaturedProductCaurosel extends Component
 
     public function render()
     {
-        return view('front.partials.featured-product-caurosel');
+        return view('front.components.partials.featured-product-caurosel');
     }
 
     private function fetchData()
