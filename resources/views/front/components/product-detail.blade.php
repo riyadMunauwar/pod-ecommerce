@@ -26,23 +26,25 @@
                     <div class="tiny-single-item">
 
                         <div class="tiny-slide">
-                            <img src="{{ $product->thumbnailUrl('medium') }}" class="rounded-md shadow dark:shadow-gray-800" alt="">
-                        </div><!--end content-->
+                            <div class="aspect-square">
+                                <x-ui.image :design="$design" :src="{{ $design->product->thumbnailUrl('medium') }}" />
+                            </div>
+                        </div>
 
-                        @foreach($product->galleryImage() as $image)
+                        @foreach($design->product->galleryImage() as $image)
                             <div class="tiny-slide">
                                 <img src="{{ $image['medium'] ?? '' }}" class="rounded-md shadow dark:shadow-gray-800" alt="">
-                            </div><!--end content-->
+                            </div>
                         @endforeach
                         
-                    </div><!--end tiny slider-->
-                </div><!--end col-->
+                    </div>
+                </div>
 
                 <div class="lg:col-span-7 md:col-span-6">
                     <div class="lg:ms-6">
-                        <h5 class="text-2xl font-semibold">{{ $product->name ?? '' }}</h5>
+                        <h5 class="text-2xl font-semibold">{{ $design->title ?? '' }}</h5>
                         <div class="mt-2">
-                            <span class="text-slate-400 font-semibold me-1">BDT {{ $product->sale_price ?? '' }} <del class="text-red-600">BDT {{ $product->regular_price ?? '' }}</del></span>
+                            <span class="text-slate-400 font-semibold me-1">BDT {{ $design->salePrice() ?? '' }} <del class="text-red-600">BDT 1500</del></span>
 
                             <ul class="list-none inline-block text-orange-400">
                                 <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
@@ -56,7 +58,7 @@
 
                         <div class="mt-4">
                             <h5 class="text-lg font-semibold">Overview :</h5>
-                            <p class="text-slate-400 mt-2">{{ $product->short_description ?? '' }}</p>
+                            <p class="text-slate-400 mt-2">{{ $design->product->short_description ?? '' }}</p>
                         
                             <!-- <ul class="list-none text-slate-400 mt-4">
                                 <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> Digital Marketing Solutions for Tomorrow</li>
@@ -67,7 +69,7 @@
 
                         <div class="grid lg:grid-cols-2 grid-cols-1 gap-[30px] mt-4">
 
-                            @foreach($product->variation_options as $attribute => $values)
+                            @foreach($design->product->variation_options as $attribute => $values)
                                 <div class="flex items-center">
                                     <h5 class="text-lg font-semibold me-2">{{ $attribute }}:</h5>
                                     <div class="">
@@ -116,13 +118,13 @@
                 <div class="lg:col-span-9 md:col-span-7">
                     <div id="myTabContent" class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
                         <div class="" id="description" role="tabpanel" aria-labelledby="profile-tab">
-                            <p class="text-slate-400">{{ $product->description ?? '' }}</p>
+                            <p class="text-slate-400">{{ $design->product->description ?? '' }}</p>
                         </div>
 
                         <div class="hidden" id="addinfo" role="tabpanel" aria-labelledby="addinfo-tab">
                             <table class="w-full text-start">
                                 <tbody>
-                                    @foreach($product->variation_options as $attribute => $values)
+                                    @foreach($design->product->variation_options as $attribute => $values)
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
                                             <td class="font-semibold py-4" style="width: 100px;">{{ $attribute }}</td>
                                             <td class="text-slate-400 py-4">{{ implode(', ', $values) }}</td>

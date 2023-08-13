@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Front;
 
 use Livewire\Component;
-use App\Models\Product;
+use App\Models\Design;
 use App\Traits\WithSweetAlert;
 use App\Traits\WithSweetAlertToast;
 
@@ -13,7 +13,7 @@ class ProductDetail extends Component
     use WithSweetAlertToast;
 
 
-    public $product;
+    public $design;
 
     public function mount()
     {
@@ -21,11 +21,11 @@ class ProductDetail extends Component
 
         if(!$id) return redirect()->route('home');
 
-        $product = Product::find($id);
+        $design = Design::with('product')->find($id);
 
-        if(!$product) return abort(404);
+        if(!$design) return abort(404);
 
-        $this->product = $product;
+        $this->design = $design;
 
     }
 

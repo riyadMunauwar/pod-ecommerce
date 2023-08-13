@@ -98,7 +98,7 @@ Route::view('/checkout', 'front.pages.checkout')->name('checkout');
 Route::view('/cart', 'front.pages.cart')->name('cart');
 Route::view('/popular', 'front.pages.popular-archieve')->name('popular-archieve');
 Route::view('/recent', 'front.pages.recent-archieve')->name('recent-archieve');
-Route::view('/p/{slug}/{id}', 'front.pages.product-detail')->name('product-detail');
+Route::view('/d/{slug}/{id}', 'front.pages.product-detail')->name('design-detail');
 Route::view('/c/{category_slug}', 'front.pages.category-archieve')->name('category-archieve');
 Route::view('/b/{brand_slug}', 'front.pages.brand-archieve')->name('brand-archieve');
 Route::view('/{page_slug}', 'front.pages.custom-page')->name('custom-page');
