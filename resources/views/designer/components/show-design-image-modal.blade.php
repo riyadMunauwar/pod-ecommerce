@@ -15,6 +15,6 @@
                 </div>
             </div>
         </x-ui.edit-modal>
-        <x-ui.loading-spinner wire:loading.flex wire:target="hideShowDesignImageModal" />
+
     @endif
 </div>
