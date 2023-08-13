@@ -6,7 +6,7 @@
                 <div class="tiny-slide">
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
-                            <a href="" class="lightbox d-inline-block" title="">
+                            <a href="{{ route('design-detail', ['slug' => $design->slug, 'id' => $design->id]) }}" class="lightbox d-inline-block" title="">
                                 <div class="relative overflow-hidden aspect-square">
                                     <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
                                 </div>

@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <a href="" class="hover:text-indigo-600 text-lg font-semibold">{{ $design->title ?? '' }}</a>
+                        <a href="{{ route('design-detail', ['slug' => $design->slug, 'id' => $design->id]) }}" class="hover:text-indigo-600 text-lg font-semibold">{{ $design->title ?? '' }}</a>
                         <div class="flex justify-between items-center mt-1">
                             <p class="text-green-600">{{ $design->salePrice() ?? '' }} <del class="text-red-600">1500</del></p>
                             <ul class="font-medium text-amber-400 list-none">

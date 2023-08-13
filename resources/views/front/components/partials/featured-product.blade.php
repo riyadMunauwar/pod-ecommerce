@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="p-4 pb-0 text-center">
-                        <a href="" class="text-lg font-semibold hover:text-indigo-600">{{ $design->title ?? '' }}</a>
+                        <a href="{{ route('design-detail', ['slug' => $design->slug, 'id' => $design->id]) }}" class="text-lg font-semibold hover:text-indigo-600">{{ $design->title ?? '' }}</a>
 
                         <p class="text-slate-400 font-semibold">BDT {{ $design->salePrice() ?? '' }}</p>
                     </div>
