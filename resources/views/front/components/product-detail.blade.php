@@ -27,7 +27,7 @@
 
                         <div class="tiny-slide">
                             <div class="aspect-square">
-                                <x-ui.image :design="$design" :src="{{ $design->product->thumbnailUrl('medium') }}" />
+                                <x-ui.image :design="$design" src="{{ $design->product->thumbnailUrl('medium') }}" />
                             </div>
                         </div>
 
