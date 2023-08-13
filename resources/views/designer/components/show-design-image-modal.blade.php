@@ -1,6 +1,6 @@
 <div>
     @if($is_show_design_image_modal)
-        <x-ui.edit-modal class="max-w-2xl mt-1/2 md:mt-0">
+        <x-ui.edit-modal class="max-w-2xl mt-1/2">
             <div class="bg-white p-4 rounded-md">
                 <div class="flex justify-end items-center">
                     <span wire:click.debounce="hideShowDesignImageModal" class="cursor-pointer">
