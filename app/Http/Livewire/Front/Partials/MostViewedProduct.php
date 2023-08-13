@@ -20,6 +20,11 @@ class MostViewedProduct extends Component
         return view('front.components.partials.most-viewed-product');
     }
 
+    public function showDesignImageModal($id)
+    {
+        return $this->emit('onDesignImageModalShow', $id);
+    }
+
     private function fetchData()
     {
         $this->designs = Design::with('product')->inRandomOrder()->take(12)->get();
