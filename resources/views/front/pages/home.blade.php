@@ -24,6 +24,11 @@
 
     @include('front.partials.apps-download')
 
+
+    @push('modals')
+        <livewire:designer.show-design-image-modal />
+    @endpush
+
 </x-front.master-layout>
 
 
