@@ -2,7 +2,8 @@
 
     <livewire:front.product-detail />
 
-    @include('front.partials.recent-products')
+    <livewire:front.partials.recent-product />
+
     @include('front.partials.apps-download')
 
 </x-front.master-layout>
