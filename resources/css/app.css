@@ -10,25 +10,48 @@
   }
   
 .aside-scroll-bar::-webkit-scrollbar-track {
-background-color: #0f172a;
+    background-color: #0f172a;
 }
 
 .aside-scroll-bar::-webkit-scrollbar-thumb {
-background-color: #cbd5e1;
-border-radius: 10px;
+    background-color: #cbd5e1;
+    border-radius: 10px;
 }
+
+
+/* Search Scroll Bar */
+
+.search-scroll-bar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.search-scroll-bar::-webkit-scrollbar-track {
+    background-color: #e2e8f0;;
+}
+
+.search-scroll-bar::-webkit-scrollbar-thumb {
+    background-color: #94a3b8;
+    border-radius: 10px;
+}
+
+
 
 /* Mega Menu */
 
 .megamenu-scroll-bar::-webkit-scrollbar {
-  width: 4px;
+    width: 4px;
 }
 
 .megamenu-scroll-bar::-webkit-scrollbar-track {
-background-color: #cbd5e1;
+    background-color: #cbd5e1;
 }
 
 .megamenu-scroll-bar::-webkit-scrollbar-thumb {
-background-color: #0f172a;
-border-radius: 10px;
+    background-color: #0f172a;
+    border-radius: 10px;
+}
+
+/* Header Z Index */
+#topnav {
+    z-index: 40;
 }

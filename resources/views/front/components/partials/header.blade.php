@@ -25,16 +25,9 @@
         <!--Login button Start-->
         <ul class="buy-button list-none mb-0">
             <li class="dropdown inline-block relative me-1">
-                <button data-dropdown-toggle="dropdown" class="dropdown-toggle text-[20px]" type="button">
+                <button wire:click.debounce="enableSearchMode" class="dropdown-toggle text-[20px]" type="button">
                     <i class="uil uil-search align-middle"></i>
                 </button>
-                <!-- Dropdown menu -->
-                <div class="dropdown-menu absolute overflow-hidden end-0 m-0 mt-4 z-10 w-52 rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 hidden" onclick="event.stopPropagation();">
-                    <div class="relative">
-                        <i class="uil uil-search text-lg absolute top-[3px] end-3"></i>
-                        <input type="text" class="form-input h-9 pe-10 sm:w-44 w-36 border-0 focus:ring-0" name="s" id="searchItem" placeholder="Search...">
-                    </div>
-                </div>
             </li>
 
             <li class="dropdown inline-block relative">
@@ -240,6 +233,10 @@
 <!-- End Navbar -->
 
 
+
+@push('modals')
+    <livewire:front.modal.search />
+@endpush
 
 <!-- Start Modal -->
 <div id="ContactUs" tabindex="-1" class="fixed z-50 hidden overflow-hidden inset-0 m-auto">

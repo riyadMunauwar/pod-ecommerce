@@ -10,4 +10,10 @@ class Header extends Component
     {
         return view('front.components.partials.header');
     }
+
+
+    public function enableSearchMode()
+    {
+        return $this->emit('onSearchMode');
+    }
 }
