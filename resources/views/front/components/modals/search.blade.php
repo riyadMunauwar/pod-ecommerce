@@ -24,8 +24,8 @@
                 </div>
 
                 <!-- List -->
-                <div class="mt-5 search-scroll-bar overflow-y-scroll h-96 pr-3">
-                    <div class="grid  gap-4 grid-cols-2 md:grid-cols-3">
+                <div class="mt-5 search-scroll-bar overflow-y-scroll h-96">
+                    <div class="grid  gap-4 grid-cols-2 md:grid-cols-3 pr-3">
                         @foreach($designs as $design)
                             <div>
                                 <div class="relative aspect-square rounded-sm">
@@ -37,9 +37,10 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="mt-5">
-                        {{ $designs->links() }}
-                    </div>
+                </div>
+
+                <div class="mt-5">
+                    {{ $designs->links() }}
                 </div>
 
 
