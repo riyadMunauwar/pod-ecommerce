@@ -50,7 +50,7 @@ class Search extends Component
 
         $query = Design::query();
 
-        $query->when($search_term, function($query) use($search_term) {
+        // $query->when($search_term, function($query) use($search_term) {
 
             $query->whereHas('product', function($query) use($search_term){
                 
@@ -73,7 +73,7 @@ class Search extends Component
                               
             });
 
-        });
+        // });
 
         return $query->paginate($this->show_per_page);
     }
