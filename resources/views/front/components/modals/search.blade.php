@@ -4,7 +4,7 @@
             <div class="md:mt-10 relative max-w-xl mx-auto bg-white rounded-bl-md rounded-br-md rounded-tr-0 md:rounded-tl-0 rounded-tr-lg md:rounded-tl-lg p-5">
                 <!-- Search Form -->
                 <div>
-                    <form>
+                    <form wire:submit.prevent="searching">
                         <div class="flex items-center justify-center rounded-3xl p-2 bg-gray-200">
                             <button type="submit" class="w-8 text-gray-600 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -25,72 +25,30 @@
 
                 <!-- List -->
                 <div class="mt-5 search-scroll-bar overflow-y-scroll h-96">
-                    <ul>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                        <li>lorem</li>
-                    </ul>
+                    <div class="grid gap-3 grid-cols-2 md:grid-cols-3">
+                        @foreach($designs as $design)
+                            <div>
+                                <div class="aspect-square">
+                                    <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
+                                </div>
+                                <div>
+
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="mt-5">
+                        {{ $designs->links() }}
+                    </div>
                 </div>
 
 
                 <!-- Loading Spinner -->
+                <div wire:loading class="absolute inset-0 w-full h-full rounded-md" style="background-color: rgba(0,0,0,.7)" >
+                    <div class="text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        Searching...
+                    </div>
+                </div>
             </div>
         </div>
     @endif

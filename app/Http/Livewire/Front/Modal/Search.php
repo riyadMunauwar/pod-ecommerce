@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Front\Modal;
 
 use Livewire\Component;
+use App\Models\Design;
 
 class Search extends Component
 {
@@ -15,7 +16,13 @@ class Search extends Component
 
     public function render()
     {
-        return view('front.components.modals.search');
+        $designs = $this->getSearchResults();
+        return view('front.components.modals.search', compact('designs'));
+    }
+
+    public function searching()
+    {
+        $this->render();
     }
 
 
@@ -28,5 +35,10 @@ class Search extends Component
     {
         $this->reset();
         $this->is_search_mode_on = false;
+    }
+
+    private function getSearchResults()
+    {
+        return Design::paginate(10);
     }
 }
