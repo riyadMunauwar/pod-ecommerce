@@ -3,11 +3,14 @@
 namespace App\Http\Livewire\Front\Modal;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Design;
 
 class Search extends Component
 {
 
+    use WithPagination;
+    
     public $is_search_mode_on = false;
 
     protected $listeners = [
