@@ -52,7 +52,7 @@ class Search extends Component
 
         // $query->when($search_term, function($query) use($search_term) {
 
-            $query->whereHas('product', function($query) use($search_term){
+            $query->orWhereHas('product', function($query) use($search_term){
                 
                 $searchQuery = "%" . $search_term . "%";
 
