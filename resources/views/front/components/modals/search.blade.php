@@ -24,11 +24,11 @@
                 </div>
 
                 <!-- List -->
-                <div class="mt-5 search-scroll-bar overflow-y-scroll h-96">
+                <div class="mt-5 search-scroll-bar overflow-y-scroll h-96 pr-3">
                     <div class="grid  gap-4 grid-cols-2 md:grid-cols-3">
                         @foreach($designs as $design)
                             <div>
-                                <div class="relative aspect-square">
+                                <div class="relative aspect-square rounded-sm">
                                     <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
                                 </div>
                                 <div>
