@@ -25,9 +25,9 @@
 
                 <!-- List -->
                 <div class="mt-5 search-scroll-bar overflow-y-scroll h-96">
-                    <div class="grid gap-3 grid-cols-2 md:grid-cols-3">
+                    <div class="flex gap-5">
                         @foreach($designs as $design)
-                            <div>
+                            <div class="w-1/3">
                                 <div class="aspect-square">
                                     <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
                                 </div>
