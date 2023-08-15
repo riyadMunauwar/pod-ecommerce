@@ -15,6 +15,8 @@ class Search extends Component
 
     public $is_search_mode_on = false;
 
+    public $search_term;
+
     protected $listeners = [
         'onSearchMode' => 'enableSearch'
     ];
@@ -44,6 +46,35 @@ class Search extends Component
 
     private function getSearchResults()
     {
-        return Design::paginate($this->show_per_page);
+        $search_term = trim($this->search_term);
+
+        $query = Design::query();
+
+        $query->when($search_term, function($query) use($search_term) {
+
+            $query->withWhereHas('product', function($query) use($search_term){
+                
+                $searchQuery = "%" . $search_term . "%";
+
+                $query->where('name', 'like', $searchQuery)
+                      ->orWhere('name', $search_term)
+                      ->orWhere('meta_description', 'like', $searchQuery)
+                      ->orWhere('meta_description', $search_term)
+                      ->orWhere('meta_tags', 'like', $searchQuery)
+                      ->orWhere('meta_tags', $search_term)
+                      ->orWhere('meta_title', 'like', $searchQuery)
+                      ->orWhere('meta_title', $search_term)
+                      ->orWhere('short_description', 'like', $searchQuery)
+                      ->orWhere('short_description', $search_term)
+                      ->orWhere('description', 'like', $searchQuery)
+                      ->orWhere('description', $search_term)
+                      ->orWhere('variation_options', 'like', $searchQuery)
+                      ->orWhere('variation_options', $search_term);
+                              
+            });
+
+        });
+
+        return $query->paginate($this->show_per_page);
     }
 }

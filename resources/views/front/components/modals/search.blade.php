@@ -12,7 +12,7 @@
                                 </svg>
                             </button>
 
-                            <input class="flex-1 text-gray-600 bg-transparent border-none focus:border-none focus:ring-0 focus:outline-0 h-6" type="text">
+                            <input wire:model.debounce="search_term" class="flex-1 text-gray-600 bg-transparent border-none focus:border-none focus:ring-0 focus:outline-0 h-6" type="text">
 
                             <span wire:click.debounce="cancelSearch" class="text-gray-600 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -27,28 +27,36 @@
                 <div class="mt-5 search-scroll-bar overflow-y-scroll h-96">
                     <div class="grid  gap-4 grid-cols-2 md:grid-cols-3 pr-3">
                         @foreach($designs as $design)
-                            <div>
+                            <a href="{{ route('design-detail', ['slug' => $design->slug, 'id' => $design->id]) }}">
                                 <div class="relative aspect-square rounded-sm">
                                     <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
                                 </div>
                                 <div class="flex justify-between mt-2">
-                                    <span>BDT {{ $design->salePrice() }}</span>
-                                    <del class="text-red-500">BDT {{ $design->regularPrice() }}</del>
+                                    <span class="text-sm">BDT {{ $design->salePrice() }}</span>
+                                    <del class="text-red-500 text-sm">BDT {{ $design->regularPrice() }}</del>
                                 </div>
-                            </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
 
                 @if($designs->total() > $this->show_per_page)
-                    <div class="mt-3">
+                    <div class="mt-8">
                         {{ $designs->links() }}
                     </div>
                 @endif
 
+                <!-- No Result Found -->
+                @if($designs->total() < 1)
+                <div wire:loading class="absolute inset-0 w-full h-full rounded-md" style="background-color: rgba(0,0,0,.7)" >
+                    <span class="text-gray-600 text-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        No Results Found !
+                    </span>
+                </div>
+                @endif
 
                 <!-- Loading Spinner -->
-                <div wire:loading class="absolute inset-0 w-full h-full rounded-md" style="background-color: rgba(0,0,0,.7)" >
+                <div wire:loading wire:target="searching" class="absolute inset-0 w-full h-full rounded-md" style="background-color: rgba(0,0,0,.7)" >
                     <div class="text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         Searching...
                     </div>
