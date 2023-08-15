@@ -31,8 +31,9 @@
                                 <div class="relative aspect-square rounded-sm">
                                     <x-ui.image :design="$design" :src="$design->product->thumbnailUrl('small')" />
                                 </div>
-                                <div>
-
+                                <div class="flex justify-between mt-2">
+                                    <span>BDT {{ $design->salePrice() }}</span>
+                                    <del class="text-red-500">BDT {{ $design->regularPrice() }}</del>
                                 </div>
                             </div>
                         @endforeach
@@ -40,7 +41,7 @@
                 </div>
 
                 @if($designs->total() > $this->show_per_page)
-                    <div class="mt-2">
+                    <div class="mt-3">
                         {{ $designs->links() }}
                     </div>
                 @endif

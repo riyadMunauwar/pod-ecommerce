@@ -108,4 +108,8 @@ class Design extends Model implements HasMedia
     public function salePrice(){
         return $this->design_sale_price + $this->product->sale_price + 210;
     }
+
+    public function regularPrice(){
+        return $this->design_sale_price + $this->product->sale_price + 210 + $this->design_regular_price;
+    }
 }
