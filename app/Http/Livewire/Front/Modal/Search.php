@@ -50,12 +50,23 @@ class Search extends Component
 
         $query = Design::query();
 
-        // $query->when($search_term, function($query) use($search_term) {
+        $query->when($search_term, function($query) use($search_term) {
 
-            $query->orWhereHas('product', function($query) use($search_term){
+
+            $searchQuery = "%" . $search_term . "%";
+
+            $query->where('title', 'like', $searchQuery)
+                  ->orWhere('title', $search_term)
+                  ->orWhere('meta_description', 'like', $searchQuery)
+                  ->orWhere('meta_description', $search_term)
+                  ->orWhere('meta_tags', 'like', $searchQuery)
+                  ->orWhere('meta_tags', $search_term)
+                  ->orWhere('meta_title', 'like', $searchQuery)
+                  ->orWhere('meta_title', $search_term);
+
                 
-                $searchQuery = "%" . $search_term . "%";
-
+            $query->orWhereHas('product', function($query) use($search_term, $searchQuery){
+                
                 $query->where('name', 'like', $searchQuery)
                       ->orWhere('name', $search_term)
                       ->orWhere('meta_description', 'like', $searchQuery)
@@ -73,7 +84,7 @@ class Search extends Component
                               
             });
 
-        // });
+        });
 
         return $query->paginate($this->show_per_page);
     }
