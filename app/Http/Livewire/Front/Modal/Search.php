@@ -11,7 +11,7 @@ class Search extends Component
 
     use WithPagination;
 
-    public $show_per_page = 7;
+    public $show_per_page = 9;
 
     public $is_search_mode_on = false;
 
@@ -52,7 +52,7 @@ class Search extends Component
 
         $query->when($search_term, function($query) use($search_term) {
 
-            $query->withWhereHas('product', function($query) use($search_term){
+            $query->whereHas('product', function($query) use($search_term){
                 
                 $searchQuery = "%" . $search_term . "%";
 
