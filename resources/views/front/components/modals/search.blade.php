@@ -39,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="mt-5">
+                <div class="mt-2">
                     {{ $designs->links() }}
                 </div>
 
