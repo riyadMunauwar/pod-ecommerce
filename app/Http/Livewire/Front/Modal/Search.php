@@ -39,6 +39,6 @@ class Search extends Component
 
     private function getSearchResults()
     {
-        return Design::paginate(10);
+        return Design::paginate(6);
     }
 }
