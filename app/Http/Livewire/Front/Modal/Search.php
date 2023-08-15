@@ -11,6 +11,8 @@ class Search extends Component
 
     use WithPagination;
 
+    public $show_per_page = 7;
+
     public $is_search_mode_on = false;
 
     protected $listeners = [
@@ -42,6 +44,6 @@ class Search extends Component
 
     private function getSearchResults()
     {
-        return Design::paginate(9);
+        return Design::paginate($this->show_per_page);
     }
 }

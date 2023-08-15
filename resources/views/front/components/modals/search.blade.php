@@ -39,9 +39,11 @@
                     </div>
                 </div>
 
-                <div class="mt-2">
-                    {{ $designs->links() }}
-                </div>
+                @if($designs->total() > $this->show_per_page)
+                    <div class="mt-2">
+                        {{ $designs->links() }}
+                    </div>
+                @endif
 
 
                 <!-- Loading Spinner -->
